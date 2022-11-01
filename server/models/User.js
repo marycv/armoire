@@ -19,12 +19,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  // thoughts: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Thought',
-  //   },
-  // ],
+  closet_id: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Closet',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {
