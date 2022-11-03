@@ -53,6 +53,13 @@ const resolvers = {
 
       return { token, user };
     },
+    // addCloset
+    // removeOneCloset
+    // addArticle
+    // removeOneArticle
+    // updateCloset
+    // updateArticle
+
   },
 };
 
