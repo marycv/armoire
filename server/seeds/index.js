@@ -1,14 +1,20 @@
-const sequalize = require('../config/connection');
+const db = require('../config/connection');
 const seedArticle = require('./articleData');
 const seedCloset = require('./closetData');
 const seedUser = require('./userData');
 
-const seedAll = async () => {
-    await sequalize.sync({force: true});
-    await seedUser();
-    await seedCloset();
-    await seedArticle();
-    process.exit(0);
-};
 
-seedAll();
+
+db.once('open', async() => {
+    await seedArticle.deleteMany({});
+    await seedCloset.deleteMany({});
+    await seedUser.deleteMany({});
+    
+    
+    const clothing = await seedArticle.insertMany();
+    const location = await seedCloset.insertMany();
+    const creator = await seedUser.insertMany();
+
+    console.log('Looks Saved!')
+    process.exit(0);
+})
