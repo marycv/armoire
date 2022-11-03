@@ -1,7 +1,7 @@
 const sequalize = require('../config/connection');
 const seedArticle = require('./articleData');
 const seedCloset = require('./closetData');
-const seedUser = require('../userData');
+const seedUser = require('./userData');
 
 const seedAll = async () => {
     await sequalize.sync({force: true});
