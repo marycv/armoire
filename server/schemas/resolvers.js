@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Closet, Article } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -15,6 +15,18 @@ const resolvers = {
         return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    closetsByUser: async (parent, args, context) => {
+      return await Closet.find({ createdBy: context.user.username });
+    },
+    oneCloset: async (parent, {closetId}, context) => {
+      return await Closet.findOne({ _id: closetId }).populate('article')
+    },
+    articlesByUser: async (parent, args, context) => {
+      return await Article.find({ createdBy: context.user.username });
+    },
+    oneArticle: async (parent, {articleId}, context) => {
+      return await Article.findOne({ _id: articleId });
     },
   },
 
@@ -41,6 +53,13 @@ const resolvers = {
 
       return { token, user };
     },
+    // addCloset
+    // removeOneCloset
+    // addArticle
+    // removeOneArticle
+    // updateCloset
+    // updateArticle
+
   },
 };
 
