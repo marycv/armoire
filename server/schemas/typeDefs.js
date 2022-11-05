@@ -6,7 +6,7 @@ const typeDefs = gql`
     _id: ID
     createdBy: User
     articles: [Article]
-    name: String 
+    closetName: String 
   }
 
   type Article{
