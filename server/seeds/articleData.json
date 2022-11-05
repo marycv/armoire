@@ -1,19 +1,46 @@
 
 [
     {
-       "clothing_type": "Tops",
-       "color":"Blue" ,
-       "occassion":"Formal",
-       "material": "Cotton"
-       
+       "clothing_type": "Jacket",
+       "color":"Tan" ,
+       "occassion":"Casual",
+       "material": "Cotton",
+       "id": "1",
+       "createdBy": "wwhite"
     },
     {
-        "clothing_type":"Tops",
-        "color": "Green",
+        "clothing_type":"Jacket",
+        "color": "Black",
         "occassion":"Formal",
-        "material": "Silk"
+        "material": "Silk",
+        "id": "2",
+        "createdBy": "jpinkman"
         
-     }
+     },
+   {
+      "clothing_type": "Shirt",
+      "color": "Yellow",
+      "occassion": "Work",
+      "material": "Cotton",
+      "id": "3",
+      "createdBy": "gfring"
+   },
+   {
+      "clothing_type": "Coat",
+      "color": "Brown",
+      "occassion": "Work",
+      "material": "Polyester",
+      "id": "4",
+      "createdBy": "sgoodman"
+   },
+   {
+      "clothing_type": "Jacket",
+      "color": "White",
+      "occassion": "Casual",
+      "material": "Denim",
+      "id": "5",
+      "createdBy": "swhite"
+   }
 
 ]
 

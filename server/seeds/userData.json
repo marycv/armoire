@@ -1,32 +1,42 @@
 [
     {
     "id": "1", 
-    "closet_name": "Room 1",
-    "creator_name": "Aliyah"
+    "username": "wwhite",
+    "email": "walterwhite@gmail.com",
+    "password": "heisenberglives123",
+    "closets": "chloride"
     },
 
     {
     "id": 2, 
-    "closet_name": "Room 2",
-    "creator_name": "Alka"
+    "username": "jpinkman",
+    "email": "jessepinkman@yahoo.com",
+    "password": "margolis",
+    "closets": "wynne"
     },
 
     {
     "id": 3, 
-    "closet_name": "Room 3",
-    "creator_name": "Mary"
+    "username": "sgoodman",
+    "email": "saulgoodman@aol.com",
+    "password": "callsaul",
+    "closets": "jimmy"
     },
 
     {
     "id": 4, 
-    "closet_name": "Room 4",
-    "creator_name": "Priyanka"
+    "username": "gfring",
+    "email": "gusfring@hotmail.com",
+    "password": "lospollos",
+    "closets": "gustavo"
     },
 
     {
     "id": 5, 
-    "closet_name": "Room 5",
-    "creator_name": "Avleen"
+    "username": "swhite",
+    "email": "skylarwhite@gmail.com",
+    "password": "carwash",
+    "closets": "blackjack"
     }
 
     
