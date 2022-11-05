@@ -5,7 +5,7 @@
        "color":"Tan" ,
        "occassion":"Casual",
        "material": "Cotton",
-       "id": "1",
+       
        "createdBy": "wwhite"
     },
     {
@@ -13,7 +13,7 @@
         "color": "Black",
         "occassion":"Formal",
         "material": "Silk",
-        "id": "2",
+        
         "createdBy": "jpinkman"
         
      },
@@ -22,7 +22,7 @@
       "color": "Yellow",
       "occassion": "Work",
       "material": "Cotton",
-      "id": "3",
+      
       "createdBy": "gfring"
    },
    {
@@ -30,7 +30,7 @@
       "color": "Brown",
       "occassion": "Work",
       "material": "Polyester",
-      "id": "4",
+      
       "createdBy": "sgoodman"
    },
    {
@@ -38,7 +38,7 @@
       "color": "White",
       "occassion": "Casual",
       "material": "Denim",
-      "id": "5",
+      
       "createdBy": "swhite"
    }
 
