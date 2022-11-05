@@ -1,30 +1,30 @@
 [
     {
-        "id": "1",
+        
         "createdBy": "wwhite",
         "articles": "/assets/waltjacket.png",
         "closetName": "chloride"
     },
     {
-        "id": "2",
+        
         "createdBy": "jpinkman",
         "articles": "/assets/jessejacket.png",
         "closetName": "wynne"
     },
     {
-        "id": "3",
+        
         "createdBy": "sgoodman",
         "articles": "/assets/saulcoat.png",
         "closetName": "jimmy"
     },
     {
-        "id": "4",
+        
         "createdBy": "gfring",
         "articles": "/assets/gusshirt.png",
         "closetName": "gustavo"
     },
     {
-        "id": "5",
+        
         "createdBy": "swhite",
         "articles": "/assets/skylarjacket.png",
         "closetName": "blackjack"

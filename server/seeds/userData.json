@@ -1,6 +1,6 @@
 [
     {
-    "id": 1, 
+     
     "username": "wwhite",
     "email": "walterwhite@gmail.com",
     "password": "heisenberglives123",
@@ -9,7 +9,7 @@
     },
 
     {
-    "id": 2, 
+    
     "username": "jpinkman",
     "email": "jessepinkman@yahoo.com",
     "password": "margolis",
@@ -17,7 +17,7 @@
     },
 
     {
-    "id": 3, 
+    
     "username": "sgoodman",
     "email": "saulgoodman@aol.com",
     "password": "callsaul",
@@ -25,7 +25,7 @@
     },
 
     {
-    "id": 4, 
+    
     "username": "gfring",
     "email": "gusfring@hotmail.com",
     "password": "lospollos",
@@ -33,7 +33,7 @@
     },
 
     {
-    "id": 5, 
+    
     "username": "swhite",
     "email": "skylarwhite@gmail.com",
     "password": "carwash",
