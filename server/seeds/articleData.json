@@ -1,0 +1,19 @@
+
+[
+    {
+       "clothing_type": "Tops",
+       "color":"Blue" ,
+       "occassion":"Formal",
+       "material": "Cotton"
+       
+    },
+    {
+        "clothing_type":"Tops",
+        "color": "Green",
+        "occassion":"Formal",
+        "material": "Silk"
+        
+     }
+
+]
+

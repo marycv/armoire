@@ -14,25 +14,22 @@ const articleSchema = new Schema({
         required: true
     },
     
-    user_id:[
+    user_id:
     {
         type : Schema.Types.ObjectId,
         ref: 'User',
     },
-    ],
 
-    material:[
-    {
+    material: {
         type: String, 
         required: true,
     },
-    ],
 
-    id: {
-        type: Number,
-        required: true, 
-        unique: true,
-    },
+    // id: {
+    //     type: Number,
+    //     required: true, 
+    //     unique: true,
+    // },
     
 
 })
