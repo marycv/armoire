@@ -1,10 +1,11 @@
 [
     {
-    "id": "1", 
+    "id": 1, 
     "username": "wwhite",
     "email": "walterwhite@gmail.com",
     "password": "heisenberglives123",
     "closets": "chloride"
+
     },
 
     {
