@@ -6,7 +6,7 @@ const typeDefs = gql`
     _id: ID
     createdBy: User
     articles: [Article]
-    name: String 
+    closetName: String 
   }
 
   type Article{
@@ -37,12 +37,14 @@ const typeDefs = gql`
     me: User
   }
 
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     # // addArticle(clothing_type: String!, color: String, occassion: String, material: String, createdBy: User): Article
     # // addCloset(name: String!) : Closet
   }
+
 `;
 
 module.exports = typeDefs;
