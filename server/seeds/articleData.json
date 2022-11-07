@@ -1,44 +1,39 @@
 
 [
     {
-       "clothing_type": "Jacket",
+       "clothingType": "Jacket",
        "color":"Tan" ,
        "occassion":"Casual",
        "material": "Cotton",
-       
        "createdBy": "wwhite"
     },
     {
-        "clothing_type":"Jacket",
+        "clothingType":"Jacket",
         "color": "Black",
         "occassion":"Formal",
         "material": "Silk",
-        
         "createdBy": "jpinkman"
         
      },
    {
-      "clothing_type": "Shirt",
+      "clothingType": "Shirt",
       "color": "Yellow",
       "occassion": "Work",
       "material": "Cotton",
-      
       "createdBy": "gfring"
    },
    {
-      "clothing_type": "Coat",
+      "clothingType": "Coat",
       "color": "Brown",
       "occassion": "Work",
       "material": "Polyester",
-      
       "createdBy": "sgoodman"
    },
    {
-      "clothing_type": "Jacket",
+      "clothingType": "Jacket",
       "color": "White",
       "occassion": "Casual",
       "material": "Denim",
-      
       "createdBy": "swhite"
    }
 

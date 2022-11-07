@@ -19,7 +19,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  closet_id: [
+  closets: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Closet',
