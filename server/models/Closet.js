@@ -3,16 +3,15 @@ const Article = require('./Article');
 //const bcrypt = require('bcrypt');
 
 const closetSchema = new Schema({
-    // id: {
-    //     type: Number,
-    //     required : true,
-    //     unique : true,
-
-    // },
-
-    user_id:
+    userId:
         {
-            type : Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        },
+
+    username:
+        {
+            type: String,
             ref: 'User',
         },
 
@@ -21,7 +20,7 @@ const closetSchema = new Schema({
         required: true
     },
 
-    article:[
+    articles:[
         {
             type: Schema.Types.ObjectId,
             ref: 'Article',

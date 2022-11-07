@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const articleSchema = new Schema({
-    clothing_type: {
+    clothingType: {
         type: String,
         required: true
     },
@@ -13,25 +13,20 @@ const articleSchema = new Schema({
         type: String, 
         required: true
     },
-    
-    user_id:
-    {
-        type : Schema.Types.ObjectId,
-        ref: 'User',
-    },
-
     material: {
         type: String, 
         required: true,
     },
-
-    // id: {
-    //     type: Number,
-    //     required: true, 
-    //     unique: true,
-    // },
-    
-
+    userId:
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    closetId:
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'Closet',
+    }
 })
 
 const Article = model('Article', articleSchema);

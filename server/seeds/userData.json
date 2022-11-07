@@ -3,41 +3,35 @@
      
     "username": "wwhite",
     "email": "walterwhite@gmail.com",
-    "password": "heisenberglives123",
-    "closets": "chloride"
-
+    "password": "heisenberglives123"
     },
 
     {
     
     "username": "jpinkman",
     "email": "jessepinkman@yahoo.com",
-    "password": "margolis",
-    "closets": "wynne"
+    "password": "margolis"
     },
 
     {
     
     "username": "sgoodman",
     "email": "saulgoodman@aol.com",
-    "password": "callsaul",
-    "closets": "jimmy"
+    "password": "callsaul"
     },
 
     {
     
     "username": "gfring",
     "email": "gusfring@hotmail.com",
-    "password": "lospollos",
-    "closets": "gustavo"
+    "password": "lospollos"
     },
 
     {
     
     "username": "swhite",
     "email": "skylarwhite@gmail.com",
-    "password": "carwash",
-    "closets": "blackjack"
+    "password": "carwash"
     }
 
     

@@ -2,31 +2,26 @@
     {
         
         "createdBy": "wwhite",
-        "articles": "/assets/waltjacket.png",
         "closetName": "chloride"
     },
     {
         
         "createdBy": "jpinkman",
-        "articles": "/assets/jessejacket.png",
         "closetName": "wynne"
     },
     {
         
         "createdBy": "sgoodman",
-        "articles": "/assets/saulcoat.png",
         "closetName": "jimmy"
     },
     {
         
         "createdBy": "gfring",
-        "articles": "/assets/gusshirt.png",
         "closetName": "gustavo"
     },
     {
         
         "createdBy": "swhite",
-        "articles": "/assets/skylarjacket.png",
         "closetName": "blackjack"
     }
 ]
