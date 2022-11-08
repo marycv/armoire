@@ -75,5 +75,6 @@ function App() {
     </ApolloProvider>
   );
 }
-
+console.log("hello");
 export default App;
+
