@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { createPath } from "react-router-dom";
+import { useState } from "react";
+import { useLazyQuery } from "@apollo/react-hooks";
 //import "./categoryStyle.css";
 
 export default function Category() {
