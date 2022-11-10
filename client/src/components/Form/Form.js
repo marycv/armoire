@@ -67,7 +67,7 @@ render() {
                     <option value= "silk">Silk</option>
                     <option value= "denim">Denim</option>
                     <option value="leather"> Leather</option>
-                    <option value="fur/synthentic-fur">Fur</option>
+                    <option value="fur-synthentic-fur">Fur</option>
                     <option value="nylon">Nylon</option>
                     <option value="spandex">Spandex</option>
                     <option value="rayon">Rayon</option>
@@ -96,5 +96,4 @@ render() {
 }
 }
 
-
-
+export default clothingUpload;
