@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from "react";
 import { createPath } from "react-router-dom";
 import { useState } from "react";
 import { useLazyQuery } from "@apollo/react-hooks";
+import { gql } from 'apollo-boost';
 //import "./categoryStyle.css";
 
 export default function Category() {
@@ -252,3 +253,22 @@ var filteredMaterialList = useMemo(getFilteredMaterial, [selectedMaterial, mater
 </div>
 
 }
+
+
+// ----------------------------------------------------------------------
+
+const getArticles = gql` 
+    query Articles($occassion: String!) {
+        article(occassion: $occassion) {
+            _id
+        }
+    }
+`;
+
+const getArticles = gql `
+    const []
+`
+
+// useLazyQuery  --> 
+//images need to be stored in database
+//
