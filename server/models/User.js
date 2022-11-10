@@ -19,10 +19,6 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  closetName: {
-    type: String,
-    required: true
-  },
   articles:[
     {
         type: Schema.Types.ObjectId,
