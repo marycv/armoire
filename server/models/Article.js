@@ -17,16 +17,6 @@ const articleSchema = new Schema({
         type: String, 
         required: true,
     },
-    userId:
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-    },
-    closetId:
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Closet',
-    }
 })
 
 const Article = model('Article', articleSchema);

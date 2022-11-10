@@ -1,34 +1,24 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Closet, Article } = require('../models');
+const { User, Article } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // users: async () => {
-    //   return User.find().populate('closets');
-    // },
-    user: async (parent, { username }, context) => {
-      return User.findOne({ username }).populate("closets");
+    users: async () => {
+      return User.find().populate('articles');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('articles');
+    },
+    oneArticle: async (parent, {articleId}, context) => {
+      return await Article.findOne({ _id: articleId });
     },
     me: async (parent, args, context) => {
-      if (!context.user) {
-        throw new AuthenticationError('You need to be logged in!');
+      if (context.user) {
+        throw User.findOne({ _id: context.user._id }).populate('articles');
       }
-      return User.findOne({ _id: context.user._id })
-        .select("-password")
+      throw new AuthenticationError('You need to be logged in!');
     },
-    closetsByUser: async (parent, { createdBy }, context) => {
-      return Closet.find({ _id: context.user._id});
-    },
-    oneCloset: async (parent, {closetId}, context) => {
-      return Closet.findOne({ _id: closetId });
-    },
-    // articlesByUser: async (parent, args, context) => {
-    //   return await Article.find({ createdBy: context.user.username });
-    // },
-    // oneArticle: async (parent, {articleId}, context) => {
-    //   return await Article.findOne({ _id: articleId });
-    // },
   },
 
   Mutation: {
@@ -54,52 +44,23 @@ const resolvers = {
 
       return { token, user };
     },
-    addCloset: async (parent, { closetName }, context) => {
+    addArticle: async (parent, { clothingType, color, occassion, material }, context) => {
       if (context.user) {
-        const closet = await Closet.create({ 
-          closetName,
-          createdBy: context.user.username,
-         });
+        const article = await Article.create({
+          clothingType,
+          color,
+          occassion,
+          material,
+        });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { closet: closet._id } }
-        );
-
-        return closet;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    addArticle: async (parent, { closetId, clothingType, color, occasion, material }, context) => {
-      if (context.user) {
-        return Closet.findOneAndUpdate(
-          { _id: closetId },
-          {
-            $addToSet: {
-              articles: { clothingType, color, occasion, material }
-            },
-          },
+          { $addToSet: { articles: article._id }},
           {
             new: true,
             runValidators: true,
           }
         );
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    removeCloset: async (parent, { closetId }, context) => {
-      if (context.user) {
-        const closet = await Closet.findOneAndDelete({
-          _id: closetId,
-          createdBy: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { closets: closet._id } }
-        );
-
-        return closet;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -109,8 +70,8 @@ const resolvers = {
           _id: articleId,
         });
 
-        await Closet.findOneAndUpdate(
-          { _id: context.closet._id },
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
           { $pull: { articles: article._id } }
         );
 
@@ -118,19 +79,6 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    updateCloset: async (parent, { closetId, closetName }, context) => {
-      if (context.user) {
-        return Closet.findOneAndUpdate({ 
-          _id: closetId,
-          closetName,
-      },
-      {
-        new: true,
-        runValidators: true,
-      });
-    }
-    throw new AuthenticationError('You need to be logged in!');
-  },
   updateArticle: async (parent, { articleId, clothingType, color, occasion, material }, context) => {
     if (context.user) {
       return Article.findOneAndUpdate({
