@@ -1,0 +1,82 @@
+.wardrobe {
+    margin: 3rem 0.5rem;
+  }
+  .wardrobe h2 {
+    font-size: 1.5rem;
+  }
+  .wardrobeContainer {
+    display: grid;
+    grid-template-columns: 22% 78%;
+  }
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+  }
+  .tab {
+    background-color: #afb2b7;
+    padding: 0.7rem;
+    height: 80px;
+    /* margin: 0.5rem; */
+    border: 1px solid #7f8084;
+    /* border-right: none; */
+    border-radius: 30px 0px 0px 30px;
+    cursor: pointer;
+  }
+  
+  .tab img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+  }
+  .tab.access{
+    display: flex;
+    align-items: center;
+    max-width: 80px;
+  }
+  .tab.access img {
+    max-height: 30px;
+    max-width: 30px;
+  }
+  .tab:hover {
+    background-color: #d7d8da;
+  }
+  .active {
+    background-color: #ffa755 !important;
+    box-shadow: -5px 2px 8px #7f8084;
+    border: 2px solid #262526;
+    border-right: none;
+  }
+  .active img {
+    max-height: 60px;
+  }
+  .shelfContainer {
+    background-color: #afb2b7;
+    border: 1px solid #7f8084;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  @media only screen and (min-width: 780px) {
+    .wardrobe {
+      max-width: 90%;
+      margin: 3rem auto;
+    }
+    .wardrobeContainer {
+      grid-template-columns: 12% 88%;
+      margin-top: 3rem;
+    }
+  }
+  @media (hover: none) {
+    .active:hover {
+      background-color: #ffa755;
+    }
+  }
+  
+  /* #262526 black
+  #7f8084
+  #afb2b7
+  #d7d8da
+  #f3f3f3 white
+  #ffa755 orange */
