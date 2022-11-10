@@ -17,10 +17,10 @@ const articleSchema = new Schema({
         type: String, 
         required: true,
     },
-    imageUrl: {
-        type: String, 
-        required: true
-    }
+    // imageUrl: {
+    //     type: String, 
+    //     required: true
+    // }
 })
 
 const Article = model('Article', articleSchema);
