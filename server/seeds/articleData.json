@@ -1,21 +1,23 @@
 
 [
-    {
-       "clothingType": "Jacket",
-       "color":"Tan" ,
-       "occassion":"Casual",
-       "material": "Cotton",
-       "createdBy": "wwhite"
-    },
-    {
-        "clothingType":"Jacket",
-        "color": "Black",
-        "occassion":"Formal",
-        "material": "Silk",
-        "createdBy": "jpinkman"
-        
-     },
    {
+      "_id": "6369ca759f94deae084fb2ea",
+      "clothingType": "Jacket",
+      "color":"Tan" ,
+      "occassion":"Casual",
+      "material": "Cotton",
+      "createdBy": "wwhite"
+   },
+   {
+      "_id": "6369ca759f94deae084fb2eb",
+      "clothingType":"Jacket",
+      "color": "Black",
+      "occassion":"Formal",
+      "material": "Silk",
+      "createdBy": "jpinkman"
+   },
+   {
+      "_id": "6369ca759f94deae084fb2ec",
       "clothingType": "Shirt",
       "color": "Yellow",
       "occassion": "Work",
@@ -23,6 +25,7 @@
       "createdBy": "gfring"
    },
    {
+      "_id": "6369ca759f94deae084fb2ed",
       "clothingType": "Coat",
       "color": "Brown",
       "occassion": "Work",
@@ -30,12 +33,12 @@
       "createdBy": "sgoodman"
    },
    {
+      "_id": "6369ca759f94deae084fb2ee",
       "clothingType": "Jacket",
       "color": "White",
       "occassion": "Casual",
       "material": "Denim",
       "createdBy": "swhite"
    }
-
 ]
 
