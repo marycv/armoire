@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "../css/Dashboard.css"
 
+import "../css/Dashboard.css"
 
  const Home = () => {
    

@@ -23,3 +23,11 @@ export const ADD_USER = gql`
     }
   }
 `;
+export const Add_Article =gql`
+ mutation addArticle($clothingType: String!,$color: String!,$occasion:String!,$material:String!,$imageURL:String){
+  addArticle(clothingType:$clothingType, color:$color, occasion:$occasion,material:$material,$imageURL:imageURL)
+ }
+
+
+
+`
