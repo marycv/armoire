@@ -16,9 +16,9 @@ import "../css/Dashboard.css"
           style= {{textAlign:'center',padding:'1.4rem'}}>
 
             <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around'}}>
-          <NavLink to="/">Wardrobe</NavLink>
-          <NavLink to="/category">Add item</NavLink>
-          <NavLink to="/wardrobe">See My Closet</NavLink>
+          {/* <NavLink to="/">Wardrobe</NavLink> */}
+          <NavLink to="/add">Add item</NavLink>
+          <NavLink to="/category">See My Closet</NavLink>
         </div>
         </nav>
         </div>
@@ -32,7 +32,7 @@ import "../css/Dashboard.css"
           style= {{textAlign:'center',padding:'1.4rem'}}>
 
             <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around',}}>
-        <NavLink to="/add">Add to my Closet</NavLink>
+        {/* <NavLink to="/add">Add to my Closet</NavLink> */}
         </div>
         </nav>
         </div>
