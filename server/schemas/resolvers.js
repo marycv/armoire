@@ -68,13 +68,14 @@ const resolvers = {
 
       return { token, user };
     },
-    addArticle: async (parent, { clothingType, color, occassion, material }, context) => {
+    addArticle: async (parent, { clothingType, color, occassion, material, imageURL }, context) => {
       if (context.user) {
         const article = await Article.create({
           clothingType,
           color,
           occassion,
           material,
+          imageURL
         });
 
         await User.findOneAndUpdate(
@@ -103,7 +104,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-  updateArticle: async (parent, { articleId, clothingType, color, occasion, material }, context) => {
+  updateArticle: async (parent, { articleId, clothingType, color, occasion, material, imageURL }, context) => {
     if (context.user) {
       return Article.findOneAndUpdate({
         _id: articleId,
@@ -111,6 +112,7 @@ const resolvers = {
         color,
         occasion,
         material,
+        imageURL
       },
       {
         new: true,

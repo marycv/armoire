@@ -9,6 +9,7 @@ const typeDefs = gql`
     occassion: String
     material: String
     createdBy: String
+    imageURL: String
   }
 
   type User {
@@ -36,10 +37,10 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addArticle(clothingType: String!, color: String!, occassion: String!, material: String!): Article
+    addArticle(clothingType: String!, color: String!, occassion: String!, material: String!, imageURL: String!): Article
     removeArticle(articleId: ID!): Article
     # updateCloset(closetId: ID!, closetName: String!): User
-    updateArticle(articleId: ID!, clothingType: String!, color: String!, occasion: String!, material: String!): Article
+    updateArticle(articleId: ID!, clothingType: String, color: String, occasion: String, material: String, imageURL: String): Article
     
   }
 
