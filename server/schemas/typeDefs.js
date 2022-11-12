@@ -26,9 +26,10 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
+    # users: [User]
     user(username: String!): User
     me: User
+    articles (clothingType: String, color: String, occasion: String, material: String): Article
     oneArticle(articleId: ID!): Article
   }
 

@@ -4,20 +4,44 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find().populate('articles');
-    },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('articles');
-    },
-    oneArticle: async (parent, {articleId}, context) => {
-      return await Article.findOne({ _id: articleId });
+    // users: async () => {
+    //   return User.find().populate('articles');
+    // },
+    user: async (parent, { username }, context) => {
+      return await User.findOne({ username }).select("-password");
+      // .populate('articles');
     },
     me: async (parent, args, context) => {
-      if (context.user) {
-        throw User.findOne({ _id: context.user._id }).populate('articles');
+      if (!context.user) {
+        throw new AuthenticationError('You need to be logged in!');
+        // throw User.findOne({ _id: context.user._id }).populate('articles');
       }
-      throw new AuthenticationError('You need to be logged in!');
+      
+      return User.findOne({ _id: context.user._id }).select("-password").populate('articles');
+    },
+    articles: async (parent, { clothingType, color, occasion, material }, context) => {
+      const params = {};
+
+      if (clothingType) {
+        params.clothingType = clothingType;
+      }
+
+      if (color) {
+        params.color = color;
+      }
+
+      if (occasion) {
+        params.occasion = occasion;
+      }
+
+      if (material) {
+        params.material = material;
+      }
+
+      return await Article.find(params).populate('image');
+    },
+    oneArticle: async (parent, {articleId}, context) => {
+      return await Article.findOne({ _id: articleId }).populate('article');
     },
   },
 
