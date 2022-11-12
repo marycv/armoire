@@ -14,6 +14,7 @@ const ImageUpload = (props) => {
       function (error, result) {
         if (!error && result.event === "success") {
           props.onImageUpload(result.info.public_id);
+          console.log(result.info);
         }
       }
     );
@@ -24,6 +25,7 @@ const ImageUpload = (props) => {
     <button className="greenButton" onClick={uploadImageWidget}>
       Upload Image
     </button>
+    
   );
 };
 

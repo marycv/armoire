@@ -15,6 +15,10 @@ import Profile from './pages/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import OutfitPicker from './components/OutfitPicker';
+import Clothform from './components/clothesForm'
+import AddCloth from './pages/AddClothe';
+import Wardrobe from './components/Wardrobe';
+import ClothesContextProvider from './contexts/ClothesContext';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -70,8 +74,22 @@ function App() {
               />
               <Route
               path="/add"
+              element={<Clothform/>}
+              />
+              <Route
+              path="/add Image"
               element={<OutfitPicker/>}
               />
+              
+              <Route
+              path="/addnewitem"
+              element={<AddCloth/>}
+              />
+              <Route
+              path="/wardrobe"
+              element={<Wardrobe/>}
+              />
+
             </Routes>
           </div>
           <Footer />
