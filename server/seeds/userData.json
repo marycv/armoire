@@ -1,38 +1,37 @@
 [
     {
-     
-    "username": "wwhite",
-    "email": "walterwhite@gmail.com",
-    "password": "heisenberglives123"
+        "username": "wwhite",
+        "email": "walterwhite@gmail.com",
+        "password": "heisenberglives123",
+        "closetName": "chloride",
+        "articles": ["6369ca759f94deae084fb2ea"]
     },
-
     {
-    
-    "username": "jpinkman",
-    "email": "jessepinkman@yahoo.com",
-    "password": "margolis"
+        "username": "jpinkman",
+        "email": "jessepinkman@yahoo.com",
+        "password": "margolis",
+        "closetName": "wynne",
+        "articles": ["6369ca759f94deae084fb2eb"]
     },
-
     {
-    
-    "username": "sgoodman",
-    "email": "saulgoodman@aol.com",
-    "password": "callsaul"
+        "username": "sgoodman",
+        "email": "saulgoodman@aol.com",
+        "password": "callsaul",
+        "closetName": "jimmy",
+        "articles": ["6369ca759f94deae084fb2ed"]
     },
-
     {
-    
-    "username": "gfring",
-    "email": "gusfring@hotmail.com",
-    "password": "lospollos"
+        "username": "gfring",
+        "email": "gusfring@hotmail.com",
+        "password": "lospollos",
+        "closetName": "gustavo",
+        "articles": ["6369ca759f94deae084fb2ec"]
     },
-
     {
-    
-    "username": "swhite",
-    "email": "skylarwhite@gmail.com",
-    "password": "carwash"
+        "username": "swhite",
+        "email": "skylarwhite@gmail.com",
+        "password": "carwash",
+        "closetName": "blackjack",
+        "articles": ["6369ca759f94deae084fb2ee"]
     }
-
-    
 ]

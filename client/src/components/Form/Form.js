@@ -96,4 +96,4 @@
 // }
 // }
 
-export default clothingUpload;
+// export default clothingUpload;

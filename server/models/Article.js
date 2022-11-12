@@ -17,15 +17,9 @@ const articleSchema = new Schema({
         type: String, 
         required: true,
     },
-    userId:
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-    },
-    closetId:
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Closet',
+    imageURL: {
+        type: String, 
+        required: true
     }
 })
 

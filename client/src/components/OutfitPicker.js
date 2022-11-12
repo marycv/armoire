@@ -7,8 +7,6 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 function App() {
 
-  
-
   const [imagesUploadedList, setImagesUploadedList] = useState([]);
   const cld = new Cloudinary({
     cloud: {
@@ -39,7 +37,7 @@ function App() {
       <button className="redButton" onClick={deleteAllImages}>
         Delete all images
       </button>
-     <a href="/addnewitem">AddDetail</a>
+     {/* <a href="/addnewitem">AddDetail</a> */}
       
       <ImageUpload
         cloud_name={cld.cloudinaryConfig.cloud.cloud_name}

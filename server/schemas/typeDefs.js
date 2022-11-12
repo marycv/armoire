@@ -2,13 +2,6 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-  type Closet {
-    _id: ID!
-    createdBy: String
-    closetName: String 
-    articles: [Article]!
-  }
-
   type Article{
     _id: ID! 
     clothingType: String 
@@ -16,8 +9,7 @@ const typeDefs = gql`
     occassion: String
     material: String
     createdBy: String
-    closetId: ID!
-    
+    imageURL: String
   }
 
   type User {
@@ -25,7 +17,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    closets: [Closet]!
+    closetName: String
+    articles: [Article]
   }
 
   type Auth {
@@ -37,19 +30,17 @@ const typeDefs = gql`
     # users: [User]
     user(username: String!): User
     me: User
-    closetsByUser(username: String!): [Closet]
-    oneCloset(closetId: ID!): Closet
+    articles (clothingType: String, color: String, occasion: String, material: String): Article
+    oneArticle(articleId: ID!): Article
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addCloset(closetName: String!) : Closet
-    addArticle(closetId: ID!, clothingType: String!, color: String!, occassion: String!, material: String!): Article
-    removeCloset(closetId: ID!): Closet
+    addArticle(clothingType: String!, color: String!, occassion: String!, material: String!, imageURL: String!): Article
     removeArticle(articleId: ID!): Article
-    updateCloset(closetId: ID!, closetName: String!): Closet
-    updateArticle(articleId: ID!, clothingType: String!, color: String!, occasion: String!, material: String!): Article
+    # updateCloset(closetId: ID!, closetName: String!): User
+    updateArticle(articleId: ID!, clothingType: String, color: String, occasion: String, material: String, imageURL: String): Article
     
   }
 
