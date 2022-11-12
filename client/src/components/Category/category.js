@@ -3,9 +3,13 @@ import { createPath } from "react-router-dom";
 import { useState } from "react";
 import { useLazyQuery } from "@apollo/react-hooks";
 import { gql } from 'apollo-boost';
+import { assertValidExecutionArguments } from "graphql/execution/execute";
+import { extendResolversFromInterfaces } from "apollo-server-express";
 //import "./categoryStyle.css";
 
 export default function Category() {
+
+    
 //ex: occassionList is a react state to maintain the list of all occassions
 const [occassionList, setOccassionList]= useState([]);
 //selectedOccassion is a react state to keep track of the type of occassion that the user has selected.
@@ -19,6 +23,29 @@ const [selectedColor, setSelectedColor] = useState();
 
 const [materialList, setMaterialList] = useState([]);
 const [selectedMaterial, setSelectedMaterial]= useState();
+
+// cosnt [myFunction, { data }] = useLazyQuery(TARGET_QUERY)
+
+
+
+const COMPILE_CLOTHES = gql `
+query Articles($occassion: String!) {
+        occassion {
+            _id
+        }
+        color {
+            _id
+        }
+        type { 
+            _id
+        }
+        material {
+            _id
+        }
+ } 
+
+`
+const [fetchData, {data}] = useLazyQuery(COMPILE_CLOTHES)
 
 const Item = ({ name, category}) => (
     <div className="item-container">
@@ -199,7 +226,7 @@ function getFilteredOccassion() {
     return occassionList.filter((item) => item.category === selectedOccassion);
 }
 
-var filteredOccassionList = useMemo(getFilteredOccassion, [selectedOccassion, occassionList]);
+var filteredOccassionList = useMemo(getFilteredOccassion, [selectedOccassion, data]);
 
 function getFilteredType() {
     if(!selectedType) {
@@ -207,7 +234,7 @@ function getFilteredType() {
     }
     return typeList.filter((item) => item.category === selectedType);
 }
-var filteredTypeList = useMemo(getFilteredType, [selectedType, typeList]);
+var filteredTypeList = useMemo(getFilteredType, [selectedType, data]);
 
 function getFilteredColor() {
     if(!selectedColor) {
@@ -215,7 +242,7 @@ function getFilteredColor() {
     }
     return colorList.filter((item) => item.category === selectedColor);
 }
-var filteredColorList = useMemo(getFilteredColor, [selectedColor, colorList]);
+var filteredColorList = useMemo(getFilteredColor, [selectedColor, data]);
 
 function getFilteredMaterial() {
     if(!selectedMaterial) {
@@ -223,7 +250,21 @@ function getFilteredMaterial() {
     }
     return materialList.filter((item) => item.category === selectedMaterial);
 }
-var filteredMaterialList = useMemo(getFilteredMaterial, [selectedMaterial, materialList]);
+var filteredMaterialList = useMemo(getFilteredMaterial, [selectedMaterial, data]);
+
+useEffect(() => {
+  const fetchData = async () => {
+    if(data.selectedColor){
+        setSelectedColor(data.selectedColor)
+    } else if (data.selectedMaterial) {
+        setSelectedMaterial(data.selectedMaterial)
+    } else if (data.selectedType) {
+        setSelectedType(data.selectedType)
+    } else if (data.selectedOccassion) {
+        setSelectedOccassion(data.selectedOccassion)
+    }
+  }
+}, [selectedColor,selectedMaterial,selectedType,selectedOccassion]);
 
 // ----------------------------------------------------------------------
 
@@ -257,17 +298,17 @@ var filteredMaterialList = useMemo(getFilteredMaterial, [selectedMaterial, mater
 
 // ----------------------------------------------------------------------
 
-const getArticles = gql` 
-    query Articles($occassion: String!) {
-        article(occassion: $occassion) {
-            _id
-        }
-    }
-`;
+// const getArticles = gql` 
+//     query Articles($occassion: String!) {
+//         article(occassion: $occassion) {
+//             _id
+//         }
+//     }
+// `;
 
-const getArticles = gql `
-    const []
-`
+// const getArticles = gql `
+//     const []
+// `
 
 // useLazyQuery  --> 
 //images need to be stored in database
