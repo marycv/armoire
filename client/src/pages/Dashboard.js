@@ -8,9 +8,7 @@ import { NavLink } from 'react-router-dom';
 // import { QUERY_THOUGHTS } from '../utils/queries';
 
  const Home = () => {
-   // const { loading, data } = useQuery(QUERY_THOUGHTS);
-   // const thoughts = data?.thoughts || [];
-
+   
   return (
     <main>
       <div className="flex-row justify-center">
@@ -23,8 +21,8 @@ import { NavLink } from 'react-router-dom';
           style= {{textAlign:'center',padding:'1.4rem'}}>
 
             <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around'}}>
-          <NavLink to="/">Wardrobe</NavLink>
-        <NavLink to="/add">Add item</NavLink>
+          <NavLink to="/wardrobe">See My Closet</NavLink>
+        <NavLink to="/add">Add to my Closet</NavLink>
         
         
         </div>

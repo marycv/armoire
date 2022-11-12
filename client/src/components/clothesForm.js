@@ -1,17 +1,18 @@
 import { useState, useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ClothesContext } from '../contexts/ClothesContext'
 import styles from '../css/ClothForm.css'
 
 const ClothesForm = ({ typeOfItem }) => {
-  const { dispatch } = useContext(ClothesContext);
+  //const { dispatch } = useContext(ClothesContext);
+  //console.log(dispatch);
   const [description, setDescription] = useState('');
   const [color, setColor] = useState('');
   const [brand, setBrand] = useState('');
   const [feedback, setFeedback] = useState(null);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleDescChange = e => {
     setDescription(e.target.value);
@@ -38,8 +39,8 @@ const ClothesForm = ({ typeOfItem }) => {
         brand,
         id: uuidv4()
       }
-      dispatch({type: 'ADD_ITEM', newItem});
-      history.push('/');
+      // dispatch({type: 'ADD_ITEM', newItem});
+      //  navigate('/');
     }
   }
 

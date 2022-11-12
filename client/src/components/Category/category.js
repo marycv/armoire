@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { createPath } from "react-router-dom";
+import { useState } from "react";
 //import "./categoryStyle.css";
 
 export default function Category() {

@@ -1,4 +1,4 @@
-import Shelf from './Shelf'
+//import Shelf from './Shelf'
 import { ClothesContext } from '../contexts/ClothesContext'
 import { useState, useContext } from 'react'
 import styles from '../css/Wardrobe.css'
@@ -50,7 +50,7 @@ const Wardrobe = () => {
             <img src="assets/icons/Clothing-Scarf-icon.png" alt="scarf icon" />
           </div>
         </div>
-        {itemToShow === 'tShirt' && <div className={`${styles.shelfContainer}`}>
+        {/* {itemToShow === 'tShirt' && <div className={`${styles.shelfContainer}`}>
           <Shelf itemList={tShirts} />
         </div>}
         {itemToShow === 'shirt' && <div className={`${styles.shelfContainer}`}>
@@ -73,7 +73,7 @@ const Wardrobe = () => {
         </div>}
         {itemToShow === 'accessories' && <div className={`${styles.shelfContainer}`}>
           <Shelf itemList={accessories} />
-        </div>}
+        </div>} */}
       </div>
     </div>
   );
