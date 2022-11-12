@@ -17,7 +17,7 @@ import Footer from './components/Footer';
 import OutfitPicker from './components/OutfitPicker';
 import Clothform from './components/clothesForm'
 import AddCloth from './pages/AddClothe';
-import Wardrobe from './components/Wardrobe';
+import Category from './components/Category/category';
 import ClothesContextProvider from './contexts/ClothesContext';
 
 // Construct our main GraphQL API endpoint
@@ -86,8 +86,8 @@ function App() {
               element={<AddCloth/>}
               />
               <Route
-              path="/wardrobe"
-              element={<Wardrobe/>}
+              path="/category"
+              element={<Category/>}
               />
 
             </Routes>
