@@ -18,7 +18,7 @@ import OutfitPicker from './components/OutfitPicker';
 import Category from './components/Category/category';
 import Clothform from './components/clothesForm'
 import AddCloth from './pages/AddClothe';
-import Wardrobe from './components/Wardrobe';
+
 import ClothesContextProvider from './contexts/ClothesContext';
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -89,8 +89,8 @@ function App() {
               element={<AddCloth/>}
               />
               <Route
-              path="/wardrobe"
-              element={<Wardrobe/>}
+              path="/category"
+              element={<Category/>}
               />
             </Routes>
           </div>
