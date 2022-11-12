@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ItemForm from '../components/clothesForm'
-import styles from '../css/AddCloth'
+//import styles from '../css/AddCloth'
 
 const AddItem = () => {
   const [typeOfItem, setTypeOfItem] = useState('');
@@ -10,9 +10,9 @@ const AddItem = () => {
   }
 
   return (
-    <div className={styles.addItem}>
-      <h2>Add a new item to your wardrobe</h2>
-      <select className={styles.select} onChange={handleTypeChange}>
+    <div style={{textAlign:'center'}} >
+      <h2 style={{margin:'3rem'}}>Add a new item to your wardrobe</h2>
+      <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleTypeChange}>
         <option value="">Type of item</option>
         <option value="tShirt">T-shirt</option>
         <option value="shirt">Shirt</option>
@@ -23,7 +23,7 @@ const AddItem = () => {
         <option value="shoes">Shoes</option>
         <option value="accessory">Accessory</option>
       </select>
-      {(typeOfItem === '' && <div className={styles.feedback}><p>You must choose a type...</p></div>)}
+      {(typeOfItem === '' && <div style={{margin:'1 rem auto'}}><p>You must choose a type...</p></div>)}
       {(typeOfItem === 'tShirt' && <ItemForm typeOfItem={typeOfItem} />)}
       {(typeOfItem === 'shirt' && <ItemForm typeOfItem={typeOfItem} />)}
       {(typeOfItem === 'sweater' && <ItemForm typeOfItem={typeOfItem} />)}
