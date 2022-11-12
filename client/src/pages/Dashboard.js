@@ -1,12 +1,5 @@
 import React from 'react';
-//import { useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
-//import OutfitDisplay from '../components/OutfitDisplay';
-//import add from '../components/OutfitDisplay'
-
-
-// import { QUERY_THOUGHTS } from '../utils/queries';
-
  const Home = () => {
    
   return (
