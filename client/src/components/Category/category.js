@@ -1,24 +1,39 @@
 import React, { useEffect, useMemo } from "react";
-import { createPath } from "react-router-dom";
+// import { createPath } from "react-router-dom";
 import { useState } from "react";
 import { useLazyQuery } from "@apollo/react-hooks";
 import { gql } from 'apollo-boost';
+// import { assertValidExecutionArguments } from "graphql/execution/execute";
+// import { extendResolversFromInterfaces } from "apollo-server-express";
 //import "./categoryStyle.css";
-
+export const COMPILE_CLOTHES = gql `
+       query Query($clothingType: String, $color: String, $occasion: String, $material: String) {
+            articles(clothingType: $clothingType, color: $color, occasion: $occasion, material: $material) {
+                imageURL
+                _id
+  }
+}
+`
 export default function Category() {
+
+    
 //ex: occassionList is a react state to maintain the list of all occassions
-const [occassionList, setOccassionList]= useState([]);
+// const [occassionList, setOccassionList]= useState([]);
 //selectedOccassion is a react state to keep track of the type of occassion that the user has selected.
 const [selectedOccassion, setSelectedOccassion] = useState();
 
-const [typeList, setTypeList] = useState([]);
+// const [typeList, setTypeList] = useState([]);
 const [selectedType, setSelectedType] = useState();
 
-const [colorList, setColorList] = useState([]);
+// const [colorList, setColorList] = useState([]);
 const [selectedColor, setSelectedColor] = useState();
 
-const [materialList, setMaterialList] = useState([]);
+// const [materialList, setMaterialList] = useState([]);
 const [selectedMaterial, setSelectedMaterial]= useState();
+
+// cosnt [myFunction, { data }] = useLazyQuery(TARGET_QUERY)
+
+const [fetchData, {data}] = useLazyQuery(COMPILE_CLOTHES)
 
 const Item = ({ name, category}) => (
     <div className="item-container">
@@ -30,66 +45,66 @@ const Item = ({ name, category}) => (
 );
 // export default Item;
 // ----------------------------------------------------------------------
-var defaultOccassions = [
-    {category: "wedding"},
-    {category: "night-out"},
-    {category: "work"},
-    {category: "sports"},
-    {category: "costume"},
-    {category: "other"}
-]
+// var defaultOccassions = [
+//     {category: "wedding"},
+//     {category: "night-out"},
+//     {category: "work"},
+//     {category: "sports"},
+//     {category: "costume"},
+//     {category: "other"}
+// ]
 
-var defaultType = [
-    {category: "coats"},
-    {category: "sweaters-cardigans"},
-    {category: "shirts-blouses"},
-    {category: "tshirts"},
-    {category: "pants"},
-    {category: "dresses"},
-    {category: "undergarments"},
-    {category: "accessories"},
-    {category: "sports-wear"}
-]
+// var defaultType = [
+//     {category: "coats"},
+//     {category: "sweaters-cardigans"},
+//     {category: "shirts-blouses"},
+//     {category: "tshirts"},
+//     {category: "pants"},
+//     {category: "dresses"},
+//     {category: "undergarments"},
+//     {category: "accessories"},
+//     {category: "sports-wear"}
+// ]
 
-var defaultColor = [
-    {category: "white"},
-    {category: "black"},
-    {category: "red"},
-    {category: "orange"},
-    {category: "beige"},
-    {category: "brown"},
-    {category: "yellow"},
-    {category: "blue"},
-    {category: "other-variety"}
-]
+// var defaultColor = [
+//     {category: "white"},
+//     {category: "black"},
+//     {category: "red"},
+//     {category: "orange"},
+//     {category: "beige"},
+//     {category: "brown"},
+//     {category: "yellow"},
+//     {category: "blue"},
+//     {category: "other-variety"}
+// ]
 
-var defaultMaterial = [
-    {category: "wool"},
-    {category: "cotton"},
-    {category: "silk"},
-    {category: "denim"},
-    {category: "leather"},
-    {category: "fur-synthetic-fur"},
-    {category: "nylon"},
-    {category: "spandex"},
-    {category: "rayon"},
-    {category: "jute"},
-    {category: "combination"},
-    {category: "not-sure"}
-]
+// var defaultMaterial = [
+//     {category: "wool"},
+//     {category: "cotton"},
+//     {category: "silk"},
+//     {category: "denim"},
+//     {category: "leather"},
+//     {category: "fur-synthetic-fur"},
+//     {category: "nylon"},
+//     {category: "spandex"},
+//     {category: "rayon"},
+//     {category: "jute"},
+//     {category: "combination"},
+//     {category: "not-sure"}
+// ]
 // ----------------------------------------------------------------------
-useEffect(() => {
-    setOccassionList(defaultOccassions);
-}, []);
-useEffect(() => {
-    setTypeList(defaultType);
-}, []);
-useEffect(() => {
-    setColorList(defaultColor);
-}, []);
-useEffect(() => {
-    setMaterialList(defaultMaterial);
-}, []);
+// useEffect(() => {
+//     setOccassionList(defaultOccassions);
+// }, []);
+// useEffect(() => {
+//     setTypeList(defaultType);
+// }, []);
+// useEffect(() => {
+//     setColorList(defaultColor);
+// }, []);
+// useEffect(() => {
+//     setMaterialList(defaultMaterial);
+// }, []);
 // ----------------------------------------------------------------------
 function handleOccassionChange(event) {
     setSelectedOccassion(event.target.value);
@@ -194,36 +209,52 @@ function handleMaterialChange(event){
 // ----------------------------------------------------------------------
 function getFilteredOccassion() {
     if(!selectedOccassion) {
-        return occassionList;
+        return data;
     }
-    return occassionList.filter((item) => item.category === selectedOccassion);
+    return data.filter((item) => item.category === selectedOccassion);
 }
 
-var filteredOccassionList = useMemo(getFilteredOccassion, [selectedOccassion, occassionList]);
+var filteredOccassionList = useMemo(getFilteredOccassion, [selectedOccassion, data]);
 
 function getFilteredType() {
     if(!selectedType) {
-        return typeList;
+        return data;
     }
-    return typeList.filter((item) => item.category === selectedType);
+    return data.filter((item) => item.category === selectedType);
 }
-var filteredTypeList = useMemo(getFilteredType, [selectedType, typeList]);
+var filteredTypeList = useMemo(getFilteredType, [selectedType, data]);
 
 function getFilteredColor() {
     if(!selectedColor) {
-        return colorList;
+        return data;
     }
-    return colorList.filter((item) => item.category === selectedColor);
+    return data.filter((item) => item.category === selectedColor);
 }
-var filteredColorList = useMemo(getFilteredColor, [selectedColor, colorList]);
+var filteredColorList = useMemo(getFilteredColor, [selectedColor, data]);
 
 function getFilteredMaterial() {
     if(!selectedMaterial) {
-        return materialList;
+        return data;
     }
-    return materialList.filter((item) => item.category === selectedMaterial);
+    return data.filter((item) => item.category === selectedMaterial);
 }
-var filteredMaterialList = useMemo(getFilteredMaterial, [selectedMaterial, materialList]);
+var filteredMaterialList = useMemo(getFilteredMaterial, [selectedMaterial, data]);
+
+useEffect(() => {
+  const grabClothes = async () => {
+
+    fetchData(
+        {
+            $clothingType: selectedType,
+            $color: selectedColor,
+            $material: selectedMaterial,
+            $occassion: selectedOccassion
+        }
+    );
+
+  } 
+  grabClothes();
+}, [selectedColor,selectedMaterial,selectedType,selectedOccassion, fetchData]);
 
 // ----------------------------------------------------------------------
 
@@ -257,17 +288,17 @@ var filteredMaterialList = useMemo(getFilteredMaterial, [selectedMaterial, mater
 
 // ----------------------------------------------------------------------
 
-const getArticles = gql` 
-    query Articles($occassion: String!) {
-        article(occassion: $occassion) {
-            _id
-        }
-    }
-`;
+// const getArticles = gql` 
+//     query Articles($occassion: String!) {
+//         article(occassion: $occassion) {
+//             _id
+//         }
+//     }
+// `;
 
-const getArticles = gql `
-    const []
-`
+// const getArticles = gql `
+//     const []
+// `
 
 // useLazyQuery  --> 
 //images need to be stored in database
