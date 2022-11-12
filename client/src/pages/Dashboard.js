@@ -24,7 +24,7 @@ import { NavLink } from 'react-router-dom';
 
             <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around'}}>
           <NavLink to="/">Wardrobe</NavLink>
-        <NavLink to="/add">Add item</NavLink>
+          <NavLink to="/category">Add item</NavLink>
         
         
         </div>
