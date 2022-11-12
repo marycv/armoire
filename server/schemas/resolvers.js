@@ -38,7 +38,7 @@ const resolvers = {
         params.material = material;
       }
 
-      return await Article.find(params).populate('image');
+      return await Article.find(params);
     },
     oneArticle: async (parent, {articleId}, context) => {
       return await Article.findOne({ _id: articleId }).populate('article');
