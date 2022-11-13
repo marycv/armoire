@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import "../css/Dashboard.css"
 
@@ -18,7 +18,10 @@ import "../css/Dashboard.css"
 
             <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around'}}>
           {/* <NavLink to="/">Wardrobe</NavLink> */}
-          <NavLink to="/add">Add to my closet</NavLink>
+          {/* <NavLink to="/add">Add to my closet</NavLink> */}
+          <Link to="/add">
+            <img src= "https://i.postimg.cc/VNgvJybY/adding.png" alt="add to my closet"></img>
+          </Link>
           <NavLink to="/category">See My Closet</NavLink>
         </div>
         </nav>
