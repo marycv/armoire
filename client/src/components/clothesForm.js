@@ -35,7 +35,7 @@ const ClothesForm = () => {
           e.preventDefault();
      
 
-    if(material === '' || color === '' || occasion === ''){
+    if(material === '' || color === '' || occasion === ''||typeOfItem === ' '){
       setFeedback('You must fill in all the fields!')
       setTimeout(() => {
         feedback(null);
@@ -46,17 +46,18 @@ const ClothesForm = () => {
         material ,
         color ,
         occasion,
-        id: uuidv4()
+        // id: uuidv4()
       }
+      console.log(newItem);
       // dispatch({type: 'ADD_ITEM', newItem});
       //  navigate('/');
     }
+    
   }
 
   return (
     <div>
       <h2 style={{margin:'3rem'}}>Add a new item to your wardrobe</h2>
-      <h1>{typeOfItem}</h1>
       <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleTypeChange}>
         <option value="">Type of item</option>
         <option value="coats">Coats</option>
@@ -70,7 +71,6 @@ const ClothesForm = () => {
       </select>
 
          <div>
-         <h1>{color}</h1>
            <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleColorChange}>
             
          <option value="">Color</option>
@@ -85,7 +85,6 @@ const ClothesForm = () => {
        </select> 
         </div>
          <div>
-            <h1>{occasion}</h1>
         <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleOccasion}>
           <option value="">occasion</option>
           <option value="wedding">Wedding</option>
@@ -95,8 +94,6 @@ const ClothesForm = () => {
           <option value="costume">costume</option>
           <option value="costume">costume</option>
         </select> 
-
-      <h1>{material}</h1>
        <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleMaterial}>
          <option value="">Material</option>
          <option value="wool">Wool</option>
@@ -116,7 +113,7 @@ const ClothesForm = () => {
            <h1>Link to image</h1>
            <NavLink to= "/add Image">Add Image</NavLink>
          </div>
-         <button type="submit" onClick={handleSubmit}>Add the item</button>
+         <button type="submit" onClick={handleSubmit}>Add the item </button>
 
 
      </div>
