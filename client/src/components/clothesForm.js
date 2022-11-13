@@ -71,8 +71,7 @@ const ClothesForm = () => {
       </select>
 
          <div>
-           <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleColorChange}>
-            
+        <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleColorChange}>   
          <option value="">Color</option>
          <option value="red">Red</option>
          <option value="blue">Blue</option>

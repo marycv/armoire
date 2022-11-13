@@ -18,7 +18,8 @@ const articleSchema = new Schema({
         required: true,
     },
     imageURL: {
-        type: String, 
+        // type: String, 
+        type:Object,
         required: true
     }
 })

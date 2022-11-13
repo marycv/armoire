@@ -18,6 +18,7 @@ import OutfitPicker from './components/OutfitPicker';
 import Category from './components/Category/category';
 import Clothform from './components/clothesForm'
 import AddCloth from './pages/AddClothe';
+import ImageUpload from './components/ImageUpload';
 
 // import ClothesContextProvider from './contexts/ClothesContext';
 // Construct our main GraphQL API endpoint

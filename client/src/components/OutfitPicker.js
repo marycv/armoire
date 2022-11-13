@@ -35,9 +35,9 @@ function App() {
   };
   return (
     <div className="App">
-      <button className="redButton" onClick={deleteAllImages}>
+      {/* <button className="redButton" onClick={deleteAllImages}>
         Delete all images
-      </button>
+      </button> */}
       {/* <button type="button" className="btn" onClick={onImageUploadHandler}>Submit</button> */}
      {/* <a href="/addnewitem">AddDetail</a> */}
       
