@@ -14,27 +14,28 @@ const ClothesForm = () => {
 
   //const { dispatch } = useContext(ClothesContext);
   //console.log(dispatch);
-  const [description, setDescription] = useState('');
+  const [occasion, setOccasion] = useState('');
   const [color, setColor] = useState('');
-  const [brand, setBrand] = useState('');
+  const [material, setMaterial] = useState('');
   const [feedback, setFeedback] = useState(null);
 
   const handleTypeChange = e => {
     setTypeOfItem(e.target.value);
   }
   const handleOccasion = e => {
-    setDescription(e.target.value);
+    setOccasion(e.target.value);
   }
   const handleColorChange = e => {
     setColor(e.target.value);
   }
   const handleMaterial = e => {
-    setBrand(e.target.value);
+    setMaterial(e.target.value);
   }
   const handleSubmit = e => {
           e.preventDefault();
+     
 
-    if(description === '' || color === '' || brand === ''){
+    if(material === '' || color === '' || occasion === ''){
       setFeedback('You must fill in all the fields!')
       setTimeout(() => {
         feedback(null);
@@ -42,9 +43,9 @@ const ClothesForm = () => {
     } else {
       const newItem = {
         type: typeOfItem,
-        description,
-        color,
-        brand,
+        material ,
+        color ,
+        occasion,
         id: uuidv4()
       }
       // dispatch({type: 'ADD_ITEM', newItem});
@@ -55,6 +56,7 @@ const ClothesForm = () => {
   return (
     <div>
       <h2 style={{margin:'3rem'}}>Add a new item to your wardrobe</h2>
+      <h1>{typeOfItem}</h1>
       <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleTypeChange}>
         <option value="">Type of item</option>
         <option value="coats">Coats</option>
@@ -68,7 +70,9 @@ const ClothesForm = () => {
       </select>
 
          <div>
+         <h1>{color}</h1>
            <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleColorChange}>
+            
          <option value="">Color</option>
          <option value="red">Red</option>
          <option value="blue">Blue</option>
@@ -81,6 +85,7 @@ const ClothesForm = () => {
        </select> 
         </div>
          <div>
+            <h1>{occasion}</h1>
         <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleOccasion}>
           <option value="">occasion</option>
           <option value="wedding">Wedding</option>
@@ -91,6 +96,7 @@ const ClothesForm = () => {
           <option value="costume">costume</option>
         </select> 
 
+      <h1>{material}</h1>
        <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleMaterial}>
          <option value="">Material</option>
          <option value="wool">Wool</option>
@@ -110,7 +116,7 @@ const ClothesForm = () => {
            <h1>Link to image</h1>
            <NavLink to= "/add Image">Add Image</NavLink>
          </div>
-         <button type="submit">Add the item</button>
+         <button type="submit" onClick={handleSubmit}>Add the item</button>
 
 
      </div>
