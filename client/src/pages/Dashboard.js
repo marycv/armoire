@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import "../css/Dashboard.css"
 
+ 
  const Home = () => {
    
   return (
@@ -17,7 +18,7 @@ import "../css/Dashboard.css"
 
             <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around'}}>
           {/* <NavLink to="/">Wardrobe</NavLink> */}
-          <NavLink to="/add">Add item</NavLink>
+          <NavLink to="/add">Add to my closet</NavLink>
           <NavLink to="/category">See My Closet</NavLink>
         </div>
         </nav>
