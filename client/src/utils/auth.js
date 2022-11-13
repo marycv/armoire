@@ -34,7 +34,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
-    window.location.reload('/start');
+    window.location.reload('/Start');
   }
 }
 
