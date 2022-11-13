@@ -62,6 +62,6 @@ All testing was done by the developing team.
 ### **Contact** ☎
 * Aliyah Musaliar **-** [Github](https://github.com/musaliyah)**,** [LinkedIn](https://www.linkedin.com/in/aliyah-musaliar-9582a5149/)
 * Alka Sah **_**
-* Mary Viloso **_**
+* Mary Viloso **_** [Github](https://github.com/marycv)**,**[LinkedIn](https://www.linkedin.com/in/maryvilloso/)
 * Avleen Dhillon **-** [Github](https://github.com/adhillon0817)**,** [LinkedIn](www.linkedin.com/in/avleen-dhillon-2116371b4)
 ***
