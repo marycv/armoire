@@ -16,11 +16,11 @@ import "../css/Dashboard.css"
             <div className = "position-absolute top-50 start-50" style={{margin:'0 auto',maxWidth:'100%',maxHeight:'100%',justifyContent:'space-around'}}>
           {/* <NavLink to="/">Wardrobe</NavLink> */}
           {/* <NavLink to="/add">Add to my closet</NavLink> */}
-          <Link to="/add">
+          <Link to="/add" className='flex'>
             <img src= "https://i.postimg.cc/VNgvJybY/adding.png" alt="add to my closet"></img>
           </Link>
           {/* <NavLink to="/category">See My Closet</NavLink> */}
-          <Link to="/category">
+          <Link to="/category" className='flex'>
             <img src= "https://i.postimg.cc/Wz1VZHfh/view.png" alt="view my closet"></img>
           </Link>
         </div>
