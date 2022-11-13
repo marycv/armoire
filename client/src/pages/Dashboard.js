@@ -9,12 +9,9 @@ import "../css/Dashboard.css"
   return (
     <main>
       <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px solid #1a1a1a' }}
-        >
+        <div>
           <nav className="col-12 col-md-10 mb-3 p-3"
-          style= {{textAlign:'center',padding:'1.4rem'}}>
+           style= {{textAlign:'center',padding:'1.4rem'}}>
 
             <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around'}}>
           {/* <NavLink to="/">Wardrobe</NavLink> */}
@@ -22,29 +19,14 @@ import "../css/Dashboard.css"
           <Link to="/add">
             <img src= "https://i.postimg.cc/VNgvJybY/adding.png" alt="add to my closet"></img>
           </Link>
-          <NavLink to="/category">See My Closet</NavLink>
+          {/* <NavLink to="/category">See My Closet</NavLink> */}
+          <Link to="/category">
+            <img src= "https://i.postimg.cc/Wz1VZHfh/view.png" alt="view my closet"></img>
+          </Link>
         </div>
         </nav>
         </div>
       </div>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px solid #1a1a1a' }}
-        >
-          <nav className="col-12 col-md-10 mb-3 p-3"
-          style= {{textAlign:'center',padding:'1.4rem'}}>
-
-            <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around',}}>
-        {/* <NavLink to="/add">Add to my Closet</NavLink> */}
-        </div>
-        </nav>
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-        </div>
-      </div>
-
-
     </main>
   );
  };
