@@ -10,10 +10,10 @@ import "../css/Dashboard.css"
     <main>
       <div className="flex-row justify-center">
         <div>
-          <nav className="col-12 col-md-10 mb-3 p-3"
+          <nav className="col-12"
            style= {{textAlign:'center',padding:'1.4rem'}}>
 
-            <div style={{margin:'0 auto',maxWidth:'80%',display:'flex',justifyContent:'space-around'}}>
+            <div className = "position-absolute top-50 start-50" style={{margin:'0 auto',maxWidth:'100%',maxHeight:'100%',justifyContent:'space-around'}}>
           {/* <NavLink to="/">Wardrobe</NavLink> */}
           {/* <NavLink to="/add">Add to my closet</NavLink> */}
           <Link to="/add">
