@@ -42,11 +42,11 @@ const ClothesForm = () => {
       }, 3000)
     } else {
       const newItem = {
-        type: typeOfItem,
-        material ,
+        clothingType: typeOfItem,
+        material,
         color ,
         occasion,
-        // id: uuidv4()
+        id: uuidv4()
       }
       console.log(newItem);
       // dispatch({type: 'ADD_ITEM', newItem});

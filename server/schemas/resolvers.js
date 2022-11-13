@@ -16,7 +16,6 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
         // throw User.findOne({ _id: context.user._id }).populate('articles');
       }
-      
       return User.findOne({ _id: context.user._id }).select("-password").populate('articles');
     },
     articles: async (parent, { clothingType, color, occasion, material }, context) => {
@@ -70,6 +69,10 @@ const resolvers = {
     },
     addArticle: async (parent, { clothingType, color, occassion, material, imageURL }, context) => {
       if (context.user) {
+        // const uploadedImage = await cloudinary.uploader.upload(image, {
+        //   upload_preset: "article-image",
+        // });
+
         const article = await Article.create({
           clothingType,
           color,
