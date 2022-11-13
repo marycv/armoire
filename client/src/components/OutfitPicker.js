@@ -17,6 +17,7 @@ function App() {
 
   const onImageUploadHandler = (publicId) => {
     setImagesUploadedList((prevState) => [...prevState, publicId]);
+   
   };
 
   const deleteAllImages = async () => {
@@ -37,6 +38,7 @@ function App() {
       <button className="redButton" onClick={deleteAllImages}>
         Delete all images
       </button>
+      {/* <button type="button" className="btn" onClick={onImageUploadHandler}>Submit</button> */}
      {/* <a href="/addnewitem">AddDetail</a> */}
       
       <ImageUpload
