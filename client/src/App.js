@@ -19,7 +19,7 @@ import Category from './components/Category/category';
 import Clothform from './components/clothesForm'
 import AddCloth from './pages/AddClothe';
 
-import ClothesContextProvider from './contexts/ClothesContext';
+// import ClothesContextProvider from './contexts/ClothesContext';
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -49,7 +49,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+        <Header />
           <div className="container">
             <Routes>
               <Route 
@@ -64,6 +64,7 @@ function App() {
                 path="/signup"
                 element={<Signup />}
               />
+
               <Route 
                 path="/me"
                 element={<Profile />}
