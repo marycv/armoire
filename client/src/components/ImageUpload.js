@@ -2,7 +2,7 @@ import { openUploadWidget } from "../utils/CloudinaryService";
 
 const ImageUpload = (props) => {
   const uploadImageWidget = () => {
-    console.log(props);
+    //console.log(props);
     let myUploadWidget = openUploadWidget(
       {
         cloudName: props.cloud_name,
@@ -14,7 +14,7 @@ const ImageUpload = (props) => {
       function (error, result) {
         if (!error && result.event === "success") {
           props.onImageUpload(result.info.public_id);
-          console.log(result.info);
+          console.log(result.info.public_id);
         }
       }
     );
