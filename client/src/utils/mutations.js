@@ -42,25 +42,15 @@ mutation Mutation($clothingType: String!, $color: String!, $occassion: String!, 
 
 
 export const ADD_ARTICLE = gql`
-  mutation addArticle(
-    $clothingType: String
-    $color: String
-    $occassion: String
-    $material: String
-  ) {
-    addArticle(
-      clothingType: $clothingType
-      color: $color
-      occassion: $occassion
-      material: $material
-    ) {
-      _id
-      clothingType
-      color
-      occassion
-      material
-    }
+  mutation Mutation($clothingType: String, $color: String, $occassion: String, $imageUrl: String, $material: String) {
+  addArticle(clothingType: $clothingType, color: $color, occassion: $occassion, imageURL: $imageUrl, material: $material) {
+    clothingType
+    color
+    imageURL
+    material
+    occassion
   }
+}
 `
 
 // export const ADD_ARTICLE = gql`

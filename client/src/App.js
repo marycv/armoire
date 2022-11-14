@@ -90,6 +90,7 @@ function App() {
               path="/category"
               element={<Category/>}
               />
+
             </Routes>
           </div>
           <Footer />
