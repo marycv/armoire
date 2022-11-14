@@ -27,6 +27,7 @@ const ClothesForm = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [addArticle, { error }] = useMutation(ADD_ARTICLE);
 
+
   const handleTypeChange = e => {
     setTypeOfItem(e.target.value);
   }
@@ -38,6 +39,10 @@ const ClothesForm = () => {
   }
   const handleMaterial = e => {
     setMaterial(e.target.value);
+  }
+
+  const handleURL = (e) => {
+    setUrl(e.target.value)
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +65,6 @@ const ClothesForm = () => {
         material,
         color ,
         occasion,
-        id: uuidv4(),
         imageURL: imageUrl
       }
       console.log(newItem);
@@ -72,6 +76,7 @@ const ClothesForm = () => {
 
   return (
     <div>
+
       <h2 style={{margin:'3rem'}}>Add a new item to your wardrobe</h2>
 
       <ImageUpload
@@ -81,7 +86,7 @@ const ClothesForm = () => {
           (imageUrl) => setImageUrl(imageUrl)}
       />
 
-      <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleTypeChange}>
+      <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleTypeChange}>  
         <option value="">Type of item</option>
         <option value="coats">Coats</option>
         <option value="shirt">Shirt</option>
@@ -103,10 +108,11 @@ const ClothesForm = () => {
          <option value="green">Green</option>
          <option value="yellow">Yellow</option>
          <option value="brown">Brown</option>
-        <option value="beige">Beige</option>
-
+          <option value="beige">Beige</option>
+          <option value="other">Other</option>
        </select> 
         </div>
+        
          <div>
         <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleOccasion}>
           <option value="">occasion</option>
@@ -115,7 +121,8 @@ const ClothesForm = () => {
           <option value="work">Work</option>
           <option value="sports">Sport</option>
           <option value="costume">costume</option>
-          <option value="costume">costume</option>
+
+          
         </select> 
        <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleMaterial}>
          <option value="">Material</option>
@@ -135,7 +142,12 @@ const ClothesForm = () => {
   
            <h1>Link to image</h1>
            <NavLink to= "/add Image">Add Image</NavLink>
+
          </div>
+
+         <button className="greenButton" onClick={uploadImageWidget}>
+      Upload Image
+    </button>
          <button type="submit" onClick={handleSubmit}>Add the item </button>
 
 

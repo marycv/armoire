@@ -8,7 +8,7 @@ const typeDefs = gql`
     color: String
     occassion: String
     material: String
-    createdBy: String
+    createdBy: Strin
     imageURL: String
   }
 
@@ -25,11 +25,11 @@ const typeDefs = gql`
     user: User
   }
 
-  type Query {
+  type Query {String
     # users: [User]
     user(username: String!): User
     me: User
-    articles (clothingType: String, color: String, occasion: String, material: String): [Article]
+    articles (clothingType: String, color: String, occasion: String, material: ,imageURL:Object): [Article]
     oneArticle(articleId: ID!): Article
   }
 

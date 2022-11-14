@@ -68,8 +68,6 @@ const resolvers = {
 
       return { token, user };
     },
-    addArticle: async (parent, newItem, { user }) => {
-
       if(!user) {
         throw new AuthenticationError('You need to be logged in!');
       }
