@@ -10,12 +10,14 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 const ClothesForm = () => {
   const [typeOfItem,setTypeOfItem] = useState('');
+ 
   const cld = new Cloudinary({
     cloud: {
       cloud_name: "dylijfrpe", //Your cloud name
       upload_preset: "yepsgsmc" //Create an unsigned upload preset and update this
     }
   });
+
   //const { dispatch } = useContext(ClothesContext);
   //console.log(dispatch);
   const [occasion, setOccasion] = useState('');
@@ -43,7 +45,7 @@ const ClothesForm = () => {
       const { error } = await addArticle({
         variables: { imageUrl },
       });
-      window.location.reload();
+      // window.location.reload();
     } catch (err) {
       console.error(error);
     }
@@ -75,9 +77,10 @@ const ClothesForm = () => {
       <ImageUpload
         cloud_name={cld.cloudinaryConfig.cloud.cloud_name}
         upload_preset={cld.cloudinaryConfig.cloud.upload_preset}
-        onImageUpload={(imageUrl) => setImageUrl(imageUrl)}
+        onImageUpload={
+          (imageUrl) => setImageUrl(imageUrl)}
       />
-      
+
       <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleTypeChange}>
         <option value="">Type of item</option>
         <option value="coats">Coats</option>
@@ -101,6 +104,7 @@ const ClothesForm = () => {
          <option value="yellow">Yellow</option>
          <option value="brown">Brown</option>
         <option value="beige">Beige</option>
+
        </select> 
         </div>
          <div>
