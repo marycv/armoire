@@ -160,13 +160,12 @@ const ClothesForm = () => {
           <option value="not-sure">Not Sure!</option>
         </select>
 
-        <h1>Link to image</h1>
-        <NavLink to="/add Image">Add Image</NavLink>
-      </div>
-      <button type="submit" onClick={handleSubmit}>
-        Add the item{' '}
-      </button>
-    </div>
-  )
-}
-export default ClothesForm
+
+           <h1>Link to image</h1>
+           <NavLink to= "/add Image">Add Image</NavLink>
+         </div>
+         <button type="submit" onClick={handleSubmit}>Add the item </button>
+     </div>
+  );  
+  };
+export default ClothesForm;
