@@ -25,7 +25,7 @@ export const ADD_USER = gql`
 
 `;
 
-export const ADD_ARTICLE = gql `
+export const ADD_GARMENT = gql `
 mutation Mutation($clothingType: String!, $color: String!, $occassion: String!, $material: String!, $imageUrl: String!) {
   addArticle(clothingType: $clothingType, color: $color, occassion: $occassion, material: $material, imageURL: $imageUrl) {
     imageURL
@@ -38,7 +38,7 @@ mutation Mutation($clothingType: String!, $color: String!, $occassion: String!, 
 //  }
 
 
-`
+//`
 
 
 export const ADD_ARTICLE = gql`
