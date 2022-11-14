@@ -113,12 +113,8 @@ const ClothesForm = () => {
            <NavLink to= "/add Image">Add Image</NavLink>
          </div>
          <button type="submit" onClick={handleSubmit}>Add the item </button>
-
-
      </div>
   );  
-
-
 
   };
 export default ClothesForm;
