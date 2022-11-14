@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Article } = require('../models');
 const { signToken } = require('../utils/auth');
+const  cloudinary = require("../utils/CloudinaryService")
 
 const resolvers = {
   Query: {
@@ -69,16 +70,16 @@ const resolvers = {
     },
     addArticle: async (parent, { clothingType, color, occassion, material, imageURL }, context) => {
       if (context.user) {
-        // const uploadedImage = await cloudinary.uploader.upload(image, {
-        //   upload_preset: "article-image",
-        // });
-
+        const uploadedImage = await cloudinary.uploader.upload(image, {
+           upload_preset: "yepsgsmc",
+         });
+        //console.log(uploadedImage);
         const article = await Article.create({
           clothingType,
           color,
           occassion,
           material,
-          imageURL
+          imageURL,
         });
 
         await User.findOneAndUpdate(
