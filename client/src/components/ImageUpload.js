@@ -13,8 +13,8 @@ const ImageUpload = (props) => {
       },
       function (error, result) {
         if (!error && result.event === "success") {
-          props.onImageUpload(result.info.public_id);
-          console.log(result.info.public_id);
+          props.onImageUpload(result.info.url);
+          console.log(result.info.url);
         }
       }
     );
