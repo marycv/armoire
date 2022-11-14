@@ -67,7 +67,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addArticle: async (parent, { clothingType, color, occassion, material, imageURL }, context) => {
+    addArticle: async (parent, { clothingType, color, occassion, material }, context) => {
       if (context.user) {
         // const uploadedImage = await cloudinary.uploader.upload(image, {
         //   upload_preset: "article-image",
@@ -78,7 +78,7 @@ const resolvers = {
           color,
           occassion,
           material,
-          imageURL
+          // imageURL
         });
 
         await User.findOneAndUpdate(

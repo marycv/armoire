@@ -10,12 +10,27 @@ export const QUERY_USER = gql`
   }
 `;
 
+// export const QUERY_ME = gql`
+//   query me {
+//     me {
+//       _id
+//       username
+//       email
+//     }
+//   }
+// `;
+
 export const QUERY_ME = gql`
-  query me {
+  query CurrentUser {
     me {
-      _id
+      articles {
+        _id
+        clothingType
+        color
+        occassion
+        material
+      }
       username
-      email
     }
   }
 `;

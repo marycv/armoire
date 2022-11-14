@@ -8,7 +8,7 @@ export const ADD_ARTICLE = gql`
       color
       occasion
       material
-      imageURL
+      # imageURL
     }
   }
 `;
