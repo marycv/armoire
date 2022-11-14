@@ -1,10 +1,14 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 import "../css/Dashboard.css"
 
  
  const Home = () => {
+  const { loading, data } = useQuery(QUERY_ME);
+
+  const currentUser = data?.me || null;
    
   return (
     <main>

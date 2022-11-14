@@ -11,11 +11,10 @@ import { Link } from 'react-router-dom'
 // import { QUERY_ARTICLE } from '../utils/queries';
 // import { CREATE_ARTICLE } from '../utils/mutation';
 
+//const { dispatch } = useContext(ClothesContext);
+  //console.log(dispatch);
 const ClothesForm = () => {
   const [typeOfItem, setTypeOfItem] = useState('')
-
-  //const { dispatch } = useContext(ClothesContext);
-  //console.log(dispatch);
   const [occassion, setOccassion] = useState('')
   const [color, setColor] = useState('')
   const [material, setMaterial] = useState('')
@@ -50,18 +49,18 @@ const ClothesForm = () => {
     } else {
       const newItem = {
         clothingType: typeOfItem,
-        material,
-        color,
-        occassion,
+        material: material,
+        color: color,
+        occassion: occassion,
         id: uuidv4(),
         // imageURL:''
       }
       console.log(newItem)
-      // addArticle({type: 'ADD_ITEM', newItem});
-       const { data } = await addArticle({
+      
+       const { error } = await addArticle({
          variables: newItem ,
        });
-       console.log('data: ',data);
+      //  console.log('data: ',data);
       //  navigate('/');
     }
   }
@@ -82,13 +81,14 @@ const ClothesForm = () => {
       >
         <option value="">Type of item</option>
         <option value="coats">Coats</option>
-        <option value="shirt">Shirt</option>
-        <option value="sweater">Sweater</option>
-        <option value="trousers">Trousers</option>
-        <option value="shorts">Shorts</option>
-        <option value="jacket">Jacket</option>
-        <option value="shoes">Shoes</option>
-        <option value="accessory">Accessory</option>
+        <option value="sweaters-cardigans">Sweaters & Cardigans</option>
+        <option value="shirts-blouses">Shirts & Blouses</option>
+        <option value="tshirts">T-shirts</option>
+        <option value="pants">Pants</option>
+        <option value="dresses">Dresses</option>
+        <option value="undergarments">Undergarments</option>
+        <option value="accessories">Accessories</option>
+        <option value="sports-wear">Sports Wear</option>
       </select>
 
       <div>
@@ -126,13 +126,13 @@ const ClothesForm = () => {
           }}
           onChange={handleOccassion}
         >
-          <option value="">occasion</option>
+          <option value="">Occassion</option>
           <option value="wedding">Wedding</option>
           <option value="night-out">Night Out</option>
           <option value="work">Work</option>
           <option value="sports">Sport</option>
           <option value="costume">costume</option>
-          <option value="costume">costume</option>
+          <option value="other">Other</option>
         </select>
         <select
           style={{

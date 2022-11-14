@@ -47,7 +47,7 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+      const user = await (await User.create({ username, email, password })).select("-password");
       const token = signToken(user);
       return { token, user };
     },
@@ -68,32 +68,38 @@ const resolvers = {
 
       return { token, user };
     },
-    addArticle: async (parent, { clothingType, color, occassion, material }, context) => {
-      if (context.user) {
-        const uploadedImage = await cloudinary.uploader.upload(image, {
-           upload_preset: "yepsgsmc",
-         });
-        //console.log(uploadedImage);
-        const article = await Article.create({
-          clothingType,
-          color,
-          occassion,
-          material,
+    addArticle: async (parent, { newItem }, { user }, context) => {
 
-          // imageURL
+      if(!user) {
+        throw new AuthenticationError('You need to be logged in!');
+      }
 
-        });
+      const article = await Article.create({ newItem } )
+      // if (context.user) {
+      //   // const uploadedImage = await cloudinary.uploader.upload(image, {
+      //   //    upload_preset: "yepsgsmc",
+      //   //  });
+      //   // //console.log(uploadedImage);
+      //   const article = await Article.create({
+      //     clothingType,
+      //     color,
+      //     occassion,
+      //     material,
+
+      //     // imageURL
+
+      //   });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: user._id },
           { $addToSet: { articles: article._id }},
           {
             new: true,
             runValidators: true,
           }
         );
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     removeArticle: async (parent, { articleId }, context) => {
       if (context.user) {

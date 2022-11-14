@@ -26,10 +26,10 @@ export const ADD_USER = gql`
 
 export const ADD_ARTICLE = gql`
   mutation addArticle(
-    $clothingType: String!
-    $color: String!
-    $occassion: String!
-    $material: String!
+    $clothingType: String
+    $color: String
+    $occassion: String
+    $material: String
   ) {
     addArticle(
       clothingType: $clothingType
@@ -45,3 +45,15 @@ export const ADD_ARTICLE = gql`
     }
   }
 `
+
+// export const ADD_ARTICLE = gql`
+//   mutation addArticle($newItem: articleInput) {
+//     addArticle(newItem: $newItem) {
+//       _id
+//       clothingType
+//       color
+//       occassion
+//       material
+//     }
+//   }
+// `;
