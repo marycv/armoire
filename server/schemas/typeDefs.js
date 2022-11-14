@@ -2,13 +2,13 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-  type Article{
+  type Article {
     _id: ID! 
     clothingType: String 
     color: String
     occassion: String
     material: String
-    createdBy: Strin
+    createdBy: String
     imageURL: String
   }
 
@@ -25,11 +25,10 @@ const typeDefs = gql`
     user: User
   }
 
-  type Query {String
-    # users: [User]
+  type Query {
     user(username: String!): User
     me: User
-    articles (clothingType: String, color: String, occasion: String, material: ,imageURL:Object): [Article]
+    articles (clothingType: String, color: String, occasion: String, material: String, imageURL: String): [Article]
     oneArticle(articleId: ID!): Article
   }
 
@@ -37,7 +36,6 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addArticle(clothingType: String, color: String, occassion: String, material: String, imageURL: String): Article
-    # addArticle(newItem: Object!): Article
     removeArticle(articleId: ID!): Article
     updateArticle(articleId: ID!, clothingType: String, color: String, occasion: String, material: String, imageURL: String): Article
     
