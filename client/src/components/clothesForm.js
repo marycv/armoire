@@ -5,13 +5,35 @@ import '../css/App.css'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@apollo/client';
  import { ADD_ARTICLE } from '../utils/mutations';
+ //import {Outfit_Picker} from '../components/OutfitPicker'
 
 import { Link } from 'react-router-dom'
-// import { useMutation, useQuery } from '@apollo/client';
-// import { QUERY_ARTICLE } from '../utils/queries';
-// import { CREATE_ARTICLE } from '../utils/mutation';
 
-const ClothesForm = () => {
+import { openUploadWidget } from "../utils/CloudinaryService";
+
+const ClothesForm = (props) => {
+
+  const uploadImageWidget =() => {
+    let myUploadWidget = openUploadWidget(
+      {
+        cloudName: props.cloud_name,
+        uploadPreset: props.upload_preset,
+        tags: ["myname"],
+        maxImageWidth: 600,
+        sources: ["local", "url", "camera"]
+      },
+      function (error, result) {
+        if (!error && result.event === "success") {
+          props.onImageUpload(result.info.public_id);
+          console.log(result.info.public_id);
+          const URL = result.info.url
+         console.log(URL);
+          
+        }
+      }
+    )
+     myUploadWidget.open();
+  };
   const [typeOfItem, setTypeOfItem] = useState('')
 
   //const { dispatch } = useContext(ClothesContext);
@@ -19,6 +41,7 @@ const ClothesForm = () => {
   const [occassion, setOccassion] = useState('')
   const [color, setColor] = useState('')
   const [material, setMaterial] = useState('')
+  const [URL , setUrl] = useState('')
   const [feedback, setFeedback] = useState(null)
   const [addArticle, { error, data }] = useMutation(ADD_ARTICLE);
 
@@ -33,6 +56,10 @@ const ClothesForm = () => {
   }
   const handleMaterial = (e) => {
     setMaterial(e.target.value)
+  }
+
+  const handleURL = (e) => {
+    setUrl(e.target.value)
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -54,7 +81,7 @@ const ClothesForm = () => {
         color,
         occassion,
         id: uuidv4(),
-        // imageURL:''
+        URL:''
       }
       console.log(newItem)
       // addArticle({type: 'ADD_ITEM', newItem});
@@ -69,6 +96,10 @@ const ClothesForm = () => {
   return (
     <div>
       <h2 style={{ margin: '3rem' }}>Add a new item to your wardrobe</h2>
+<div>
+      <h1>Link to image</h1>
+           <NavLink to= "/add Image" onClick={handleURL}>Add Image</NavLink>
+      </div>     
       <select
         style={{
           backgroundColor: '#262526',
@@ -161,9 +192,13 @@ const ClothesForm = () => {
         </select>
 
 
-           <h1>Link to image</h1>
-           <NavLink to= "/add Image">Add Image</NavLink>
+           {/* <h1>Link to image</h1>
+           <NavLink to= "/add Image" onClick={handleURL}>Add Image</NavLink> */}
          </div>
+
+         <button className="greenButton" onClick={uploadImageWidget}>
+      Upload Image
+    </button>
          <button type="submit" onClick={handleSubmit}>Add the item </button>
      </div>
   );  
