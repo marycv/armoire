@@ -81,11 +81,7 @@ function App() {
               <Route
               path="/add Image"
               element={<OutfitPicker/>}
-              />
-              <Route 
-              path="/category"
-              element={<Category />}
-              />           
+              />          
               <Route
               path="/addnewitem"
               element={<AddCloth/>}
