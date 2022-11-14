@@ -1,7 +1,7 @@
 import { openUploadWidget } from "../utils/CloudinaryService";
-import React, { useEffect, useState } from 'react';
-import { gql, useMutation } from '@apollo/client'
-import { ADD_ARTICLE } from '../utils/mutations';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client'
+import { ADD_GARMENT } from '../utils/mutations';
 // export const COMPILE_IMAGES = gql `
 // query Query {
 //   articles {
@@ -13,7 +13,7 @@ import { ADD_ARTICLE } from '../utils/mutations';
 
 const ImageUpload = (props) => {
   const [image, setImage] = useState('');
-  const [addArticle, { error }] = useMutation(ADD_ARTICLE);
+  const [addArticle, { error }] = useMutation(ADD_GARMENT);
   
   
 const handleImageSubmit = async (event) => {
