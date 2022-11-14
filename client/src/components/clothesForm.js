@@ -1,5 +1,4 @@
 import React,{ useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 import { NavLink } from 'react-router-dom';
 import "../css/App.css";
 
@@ -60,9 +59,9 @@ const ClothesForm = () => {
     } else {
       const newItem = {
         clothingType: typeOfItem,
-        material,
-        color ,
-        occasion,
+        material: material,
+        color: color,
+        occasion: occassion,
         imageURL: imageUrl
       }
       console.log(newItem);

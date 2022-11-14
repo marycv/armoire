@@ -1,21 +1,15 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Article } = require('../models');
 const { signToken } = require('../utils/auth');
-const  cloudinary = require("../utils/CloudinaryService")
 
 const resolvers = {
   Query: {
-    // users: async () => {
-    //   return User.find().populate('articles');
-    // },
     user: async (parent, { username }, context) => {
       return await User.findOne({ username }).select("-password");
-      // .populate('articles');
     },
     me: async (parent, args, context) => {
       if (!context.user) {
         throw new AuthenticationError('You need to be logged in!');
-        // throw User.findOne({ _id: context.user._id }).populate('articles');
       }
       return User.findOne({ _id: context.user._id }).select("-password").populate('articles');
     },
@@ -68,25 +62,11 @@ const resolvers = {
 
       return { token, user };
     },
+    addArticle: async (parent, newItem, { user }) => {
       if(!user) {
         throw new AuthenticationError('You need to be logged in!');
-      }
-
+    }
       const article = await Article.create(newItem)
-      // if (context.user) {
-      //   // const uploadedImage = await cloudinary.uploader.upload(image, {
-      //   //    upload_preset: "yepsgsmc",
-      //   //  });
-      //   // //console.log(uploadedImage);
-      //   const article = await Article.create({
-      //     clothingType,
-      //     color,
-      //     occassion,
-      //     material,
-
-      //     // imageURL
-
-      //   });
 
         await User.findOneAndUpdate(
           { _id: user._id },
@@ -98,8 +78,6 @@ const resolvers = {
         );
 
         return article;
-      // }
-      // throw new AuthenticationError('You need to be logged in!');
     },
     removeArticle: async (parent, { articleId }, context) => {
       if (context.user) {
