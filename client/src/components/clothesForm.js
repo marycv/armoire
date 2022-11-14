@@ -14,15 +14,15 @@ import { Link } from 'react-router-dom'
 //const { dispatch } = useContext(ClothesContext);
   //console.log(dispatch);
 const ClothesForm = () => {
-  const [typeOfItem, setTypeOfItem] = useState('')
+  const [clothingType, setClothingType] = useState('')
   const [occassion, setOccassion] = useState('')
   const [color, setColor] = useState('')
   const [material, setMaterial] = useState('')
   const [feedback, setFeedback] = useState(null)
   const [addArticle, { error, data }] = useMutation(ADD_ARTICLE);
 
-  const handleTypeChange = (e) => {
-    setTypeOfItem(e.target.value)
+  const handleClothingTypeChange = (e) => {
+    setClothingType(e.target.value)
   }
   const handleOccassion = (e) => {
     setOccassion(e.target.value)
@@ -40,7 +40,7 @@ const ClothesForm = () => {
       material === '' ||
       color === '' ||
       occassion === '' ||
-      typeOfItem === ' '
+      clothingType === ' '
     ) {
       setFeedback('You must fill in all the fields!')
       setTimeout(() => {
@@ -48,11 +48,11 @@ const ClothesForm = () => {
       }, 3000)
     } else {
       const newItem = {
-        clothingType: typeOfItem,
+        clothingType: clothingType,
         material: material,
         color: color,
         occassion: occassion,
-        id: uuidv4(),
+        // id: uuidv4(),
         // imageURL:''
       }
       console.log(newItem)
@@ -77,7 +77,7 @@ const ClothesForm = () => {
           width: '50%',
           background: '#ddd',
         }}
-        onChange={handleTypeChange}
+        onChange={handleClothingTypeChange}
       >
         <option value="">Type of item</option>
         <option value="coats">Coats</option>

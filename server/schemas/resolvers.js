@@ -68,13 +68,13 @@ const resolvers = {
 
       return { token, user };
     },
-    addArticle: async (parent, { newItem }, { user }, context) => {
+    addArticle: async (parent, newItem, { user }) => {
 
       if(!user) {
         throw new AuthenticationError('You need to be logged in!');
       }
 
-      const article = await Article.create({ newItem } )
+      const article = await Article.create(newItem)
       // if (context.user) {
       //   // const uploadedImage = await cloudinary.uploader.upload(image, {
       //   //    upload_preset: "yepsgsmc",
@@ -98,6 +98,8 @@ const resolvers = {
             runValidators: true,
           }
         );
+
+        return article;
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
