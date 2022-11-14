@@ -16,12 +16,12 @@ const articleSchema = new Schema({
     material: {
         type: String, 
         required: true,
-    },
-    imageURL: {
-        // type: String, 
-        type:Object,
-        required: true
     }
+    // imageURL: {
+    //     // type: String, 
+    //     type:Object,
+    //     required: false
+    // }
 })
 
 const Article = model('Article', articleSchema);
