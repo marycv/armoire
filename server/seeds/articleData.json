@@ -6,7 +6,8 @@
       "color":"Tan" ,
       "occassion":"Casual",
       "material": "Cotton",
-      "createdBy": "wwhite"
+      "createdBy": "wwhite",
+      "imageURL":"http://res.cloudinary.com/dylijfrpe/image/upload/v1668392080/snwttu6ygqvclaacapb7.webp"
    },
    {
       "_id": "6369ca759f94deae084fb2eb",
@@ -14,7 +15,8 @@
       "color": "Black",
       "occassion":"Formal",
       "material": "Silk",
-      "createdBy": "jpinkman"
+      "createdBy": "jpinkman",
+      "imageURL":"http://res.cloudinary.com/dylijfrpe/image/upload/v1668392080/snwttu6ygqvclaacapb7.webp"
    },
    {
       "_id": "6369ca759f94deae084fb2ec",
