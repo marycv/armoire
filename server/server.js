@@ -29,6 +29,29 @@ const startApolloServer = async (typeDefs, resolvers) => {
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
+
+  // app.post('/upload', multerUploads, (req, res) => {
+  //   //console.log('req.body :', req.body);
+  //   if(req.file) {
+  //     const file = dataUri(req).content;
+  //     return uploader.upload(file).then((result) => {
+  //     const image = result.url;
+  //     return res.status(200).json({
+  //     messge: 'Your image has been uploded successfully to cloudinary',
+  //     data: {
+  //     image
+  //     }
+  //     })
+  //     }).catch((err) => res.status(400).json({
+  //     messge: 'someting went wrong while processing your request',
+  //     data: {
+  //     err
+  //     }
+  //     }))
+  //     }
+  //     });
+
+  //   });
   
   db.once('open', () => {
     app.listen(PORT, () => {

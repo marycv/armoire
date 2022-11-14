@@ -42,8 +42,10 @@ const handleImageSubmit = async (event) => {
       },
       function (error, result) {
         if (!error && result.event === "success") {
+
           props.onImageUpload(result.info.url);
           console.log(result.info.url);
+
         }
       }
     );
