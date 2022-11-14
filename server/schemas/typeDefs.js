@@ -13,11 +13,10 @@ const typeDefs = gql`
   }
 
   type User {
-    _id: ID!
+    _id: ID
     username: String
     email: String
     password: String
-    # closetName: String
     articles: [Article]
   }
 
@@ -37,9 +36,8 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addArticle(clothingType: String!, color: String!, occassion: String!, material: String!,imageURL: Object!): Article
+
     removeArticle(articleId: ID!): Article
-    # updateCloset(closetId: ID!, closetName: String!): User
     updateArticle(articleId: ID!, clothingType: String, color: String, occasion: String, material: String, imageURL: String): Article
     
   }

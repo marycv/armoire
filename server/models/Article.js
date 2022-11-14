@@ -3,19 +3,19 @@ const { Schema, model } = require('mongoose');
 const articleSchema = new Schema({
     clothingType: {
         type: String,
-        required: true
+        required: false
     },
     color: {
         type: String, 
-        required: true
+        required: false
     },
     occassion: {
         type: String, 
-        required: true
+        required: false
     },
     material: {
         type: String, 
-        required: true,
+        required: false,
     }
     // imageURL: {
     //     // type: String, 

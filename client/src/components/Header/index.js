@@ -12,7 +12,7 @@ const Header = () => {
     <header className="bg text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
-          <Link className="text-light" to="/me">
+          <Link className="text-light" to="/">
            <img src="https://i.postimg.cc/BvBM87QJ/armoire-logo.png" alt="armoire logo"/>
           </Link>
           

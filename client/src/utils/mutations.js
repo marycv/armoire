@@ -22,14 +22,31 @@ export const ADD_USER = gql`
       }
     }
   }
+
+`;
+
+export const ADD_GARMENT = gql `
+mutation Mutation($clothingType: String!, $color: String!, $occassion: String!, $material: String!, $imageUrl: String!) {
+  addArticle(clothingType: $clothingType, color: $color, occassion: $occassion, material: $material, imageURL: $imageUrl) {
+    imageURL
+  }
+}
 `
+// export const Add_Article =gql`
+//  mutation addArticle($clothingType: String!,$color: String!,$occasion:String!,$material:String!,$imageURL:String){
+//   addArticle(clothingType:$clothingType, color:$color, occasion:$occasion,material:$material,$imageURL:imageURL)
+//  }
+
+
+//`
+
 
 export const ADD_ARTICLE = gql`
   mutation addArticle(
-    $clothingType: String!
-    $color: String!
-    $occassion: String!
-    $material: String!
+    $clothingType: String
+    $color: String
+    $occassion: String
+    $material: String
   ) {
     addArticle(
       clothingType: $clothingType
@@ -45,3 +62,15 @@ export const ADD_ARTICLE = gql`
     }
   }
 `
+
+// export const ADD_ARTICLE = gql`
+//   mutation addArticle($newItem: articleInput) {
+//     addArticle(newItem: $newItem) {
+//       _id
+//       clothingType
+//       color
+//       occassion
+//       material
+//     }
+//   }
+// `;

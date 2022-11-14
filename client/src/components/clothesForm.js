@@ -9,35 +9,9 @@ import { useMutation } from '@apollo/client';
 
 import { Link } from 'react-router-dom'
 
-import { openUploadWidget } from "../utils/CloudinaryService";
-
-const ClothesForm = (props) => {
-
-  const uploadImageWidget =() => {
-    let myUploadWidget = openUploadWidget(
-      {
-        cloudName: props.cloud_name,
-        uploadPreset: props.upload_preset,
-        tags: ["myname"],
-        maxImageWidth: 600,
-        sources: ["local", "url", "camera"]
-      },
-      function (error, result) {
-        if (!error && result.event === "success") {
-          props.onImageUpload(result.info.public_id);
-          console.log(result.info.public_id);
-          const URL = result.info.url
-         console.log(URL);
-          
-        }
-      }
-    )
-     myUploadWidget.open();
-  };
-  const [typeOfItem, setTypeOfItem] = useState('')
-
-  //const { dispatch } = useContext(ClothesContext);
   //console.log(dispatch);
+const ClothesForm = () => {
+  const [clothingType, setClothingType] = useState('')
   const [occassion, setOccassion] = useState('')
   const [color, setColor] = useState('')
   const [material, setMaterial] = useState('')
@@ -45,8 +19,8 @@ const ClothesForm = (props) => {
   const [feedback, setFeedback] = useState(null)
   const [addArticle, { error, data }] = useMutation(ADD_ARTICLE);
 
-  const handleTypeChange = (e) => {
-    setTypeOfItem(e.target.value)
+  const handleClothingTypeChange = (e) => {
+    setClothingType(e.target.value)
   }
   const handleOccassion = (e) => {
     setOccassion(e.target.value)
@@ -68,7 +42,7 @@ const ClothesForm = (props) => {
       material === '' ||
       color === '' ||
       occassion === '' ||
-      typeOfItem === ' '
+      clothingType === ' '
     ) {
       setFeedback('You must fill in all the fields!')
       setTimeout(() => {
@@ -76,19 +50,20 @@ const ClothesForm = (props) => {
       }, 3000)
     } else {
       const newItem = {
-        clothingType: typeOfItem,
-        material,
-        color,
-        occassion,
-        id: uuidv4(),
-        URL:''
+
+        clothingType: clothingType,
+        material: material,
+        color: color,
+        occassion: occassion,
+        // id: uuidv4(),
+        // imageURL:''
       }
       console.log(newItem)
-      // addArticle({type: 'ADD_ITEM', newItem});
-       const { data } = await addArticle({
+      
+       const { error } = await addArticle({
          variables: newItem ,
        });
-       console.log('data: ',data);
+      //  console.log('data: ',data);
       //  navigate('/');
     }
   }
@@ -109,17 +84,18 @@ const ClothesForm = (props) => {
           width: '50%',
           background: '#ddd',
         }}
-        onChange={handleTypeChange}
+        onChange={handleClothingTypeChange}
       >
         <option value="">Type of item</option>
         <option value="coats">Coats</option>
-        <option value="shirt">Shirt</option>
-        <option value="sweater">Sweater</option>
-        <option value="trousers">Trousers</option>
-        <option value="shorts">Shorts</option>
-        <option value="jacket">Jacket</option>
-        <option value="shoes">Shoes</option>
-        <option value="accessory">Accessory</option>
+        <option value="sweaters-cardigans">Sweaters & Cardigans</option>
+        <option value="shirts-blouses">Shirts & Blouses</option>
+        <option value="tshirts">T-shirts</option>
+        <option value="pants">Pants</option>
+        <option value="dresses">Dresses</option>
+        <option value="undergarments">Undergarments</option>
+        <option value="accessories">Accessories</option>
+        <option value="sports-wear">Sports Wear</option>
       </select>
 
       <div>
@@ -157,13 +133,13 @@ const ClothesForm = (props) => {
           }}
           onChange={handleOccassion}
         >
-          <option value="">occasion</option>
+          <option value="">Occassion</option>
           <option value="wedding">Wedding</option>
           <option value="night-out">Night Out</option>
           <option value="work">Work</option>
           <option value="sports">Sport</option>
           <option value="costume">costume</option>
-          <option value="costume">costume</option>
+          <option value="other">Other</option>
         </select>
         <select
           style={{
