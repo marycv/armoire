@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Article } = require('../models');
 const { signToken } = require('../utils/auth');
+const  cloudinary = require("../utils/CloudinaryService")
 
 const resolvers = {
   Query: {
@@ -46,7 +47,7 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+      const user = await (await User.create({ username, email, password })).select("-password");
       const token = signToken(user);
       return { token, user };
     },
@@ -67,30 +68,40 @@ const resolvers = {
 
       return { token, user };
     },
-    addArticle: async (parent, { clothingType, color, occassion, material, imageURL }, context) => {
-      if (context.user) {
-        // const uploadedImage = await cloudinary.uploader.upload(image, {
-        //   upload_preset: "article-image",
-        // });
+    addArticle: async (parent, newItem, { user }) => {
 
-        const article = await Article.create({
-          clothingType,
-          color,
-          occassion,
-          material,
-          imageURL
-        });
+      if(!user) {
+        throw new AuthenticationError('You need to be logged in!');
+      }
+
+      const article = await Article.create(newItem)
+      // if (context.user) {
+      //   // const uploadedImage = await cloudinary.uploader.upload(image, {
+      //   //    upload_preset: "yepsgsmc",
+      //   //  });
+      //   // //console.log(uploadedImage);
+      //   const article = await Article.create({
+      //     clothingType,
+      //     color,
+      //     occassion,
+      //     material,
+
+      //     // imageURL
+
+      //   });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: user._id },
           { $addToSet: { articles: article._id }},
           {
             new: true,
             runValidators: true,
           }
         );
-      }
-      throw new AuthenticationError('You need to be logged in!');
+
+        return article;
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     removeArticle: async (parent, { articleId }, context) => {
       if (context.user) {

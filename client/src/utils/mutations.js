@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client'
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -10,7 +10,7 @@ export const LOGIN_USER = gql`
       }
     }
   }
-`;
+`
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
@@ -22,6 +22,7 @@ export const ADD_USER = gql`
       }
     }
   }
+
 `;
 
 export const ADD_ARTICLE = gql `
@@ -37,5 +38,39 @@ mutation Mutation($clothingType: String!, $color: String!, $occassion: String!, 
 //  }
 
 
+`
 
-// `
+
+export const ADD_ARTICLE = gql`
+  mutation addArticle(
+    $clothingType: String
+    $color: String
+    $occassion: String
+    $material: String
+  ) {
+    addArticle(
+      clothingType: $clothingType
+      color: $color
+      occassion: $occassion
+      material: $material
+    ) {
+      _id
+      clothingType
+      color
+      occassion
+      material
+    }
+  }
+`
+
+// export const ADD_ARTICLE = gql`
+//   mutation addArticle($newItem: articleInput) {
+//     addArticle(newItem: $newItem) {
+//       _id
+//       clothingType
+//       color
+//       occassion
+//       material
+//     }
+//   }
+// `;
