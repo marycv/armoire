@@ -1,6 +1,35 @@
 import { openUploadWidget } from "../utils/CloudinaryService";
+import React, { useEffect, useState } from 'react';
+import { gql, useMutation } from '@apollo/client'
+import { ADD_ARTICLE } from '../utils/mutations';
+// export const COMPILE_IMAGES = gql `
+// query Query {
+//   articles {
+//     imageURL
+//   }
+// }
+// `
+
 
 const ImageUpload = (props) => {
+  const [image, setImage] = useState('');
+  const [addArticle, { error }] = useMutation(ADD_ARTICLE);
+  
+  
+const handleImageSubmit = async (event) => {
+  event.preventDefault();
+
+  try {
+    const { data } = await addArticle({
+      variables: { imageURL: image },
+    });
+    window.location.reload();
+  } catch (err) {
+    console.error(error);
+  }
+};
+
+
   const uploadImageWidget = () => {
     //console.log(props);
     let myUploadWidget = openUploadWidget(
@@ -13,8 +42,8 @@ const ImageUpload = (props) => {
       },
       function (error, result) {
         if (!error && result.event === "success") {
-          props.onImageUpload(result.info.public_id);
-          console.log(result.info.public_id);
+          props.onImageUpload(result.info.url);
+          console.log(result.info.url);
         }
       }
     );
@@ -22,11 +51,13 @@ const ImageUpload = (props) => {
   };
 
   return (
-    <button className="greenButton" onClick={uploadImageWidget}>
+    <button className="greenButton" onClick={uploadImageWidget} onSubmit={handleImageSubmit} onChange= {(event) => setImage(event.target.value)} >
       Upload Image
     </button>
     
   );
+
+
 };
 
 export default ImageUpload;
