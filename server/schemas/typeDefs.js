@@ -28,7 +28,7 @@ const typeDefs = gql`
   type Query {
     user(username: String!): User
     me: User
-    articles (clothingType: String, color: String, occasion: String, material: String, imageURL: String): [Article]
+    articles (clothingType: String, color: String, occassion: String, material: String, imageURL: String): [Article]
     oneArticle(articleId: ID!): Article
   }
 

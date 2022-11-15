@@ -7,10 +7,14 @@ import { gql } from '@apollo/client';
 // import { extendResolversFromInterfaces } from "apollo-server-express";
 //import "./categoryStyle.css";
 export const COMPILE_CLOTHES = gql `
-       query Query($clothingType: String, $color: String, $occasion: String, $material: String) {
-            articles(clothingType: $clothingType, color: $color, occasion: $occasion, material: $material) {
+       query Query($clothingType: String, $color: String, $occassion: String, $material: String) {
+            articles(clothingType: $clothingType, color: $color, occassion: $occassion, material: $material) {
                 imageURL
                 _id
+                clothingType
+                color
+                occassion
+                material
   }
 }
 `
@@ -75,7 +79,8 @@ useEffect(() => {
             clothingType: selectedType,
             color: selectedColor,
             material: selectedMaterial,
-            occassion: selectedOccassion
+            occassion: selectedOccassion,
+    
         }
   });
 
@@ -85,11 +90,10 @@ useEffect(() => {
 
 
 
-const Item = ({ name, category}) => (
+const Item = ({ imageURL }) => (
     <div className="item-container">
         <div>
-            <span className="item-label">Category: </span>
-            {category}
+            <img src= { imageURL } alt="user's clothes"/>
         </div>
     </div>
 );
