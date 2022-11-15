@@ -67,7 +67,7 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
     }
       const article = await Article.create(newItem)
-
+      console.log(newItem);
         await User.findOneAndUpdate(
           { _id: user._id },
           { $addToSet: { articles: article._id }},

@@ -23,8 +23,9 @@ const ClothesForm = () => {
   const [material, setMaterial] = useState('');
   const [feedback, setFeedback] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
-  const [addArticle, { error }] = useMutation(ADD_ARTICLE);
+  const [addArticle, { data }] = useMutation(ADD_ARTICLE);
 
+  
   const handleTypeChange = e => {
     setTypeOfItem(e.target.value);
   }
@@ -39,28 +40,29 @@ const ClothesForm = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const { error } = await addArticle({
-        variables: { imageUrl },
-      });
-      // window.location.reload();
-    } catch (err) {
-      console.error(error);
-    }
+ 
     if(material === '' || color === '' || occasion === ''||typeOfItem === ' '){
       setFeedback('You must fill in all the fields!')
       setTimeout(() => {
-        feedback(null);
+        setFeedback(null);
       }, 3000)
     } else {
       const newItem = {
         clothingType: typeOfItem,
         material: material,
         color: color,
-        occasion: occassion,
+        occasion: occasion,
         imageURL: imageUrl
       }
       console.log(newItem);
+      try {
+        const { error } = await addArticle({
+          variables: newItem,
+        });
+        // window.location.reload();
+      } catch (err) {
+        console.error(data);
+      }
       // dispatch({type: 'ADD_ITEM', newItem});
       //  navigate('/');
     }
@@ -77,6 +79,7 @@ const ClothesForm = () => {
         onImageUpload={
           (imageUrl) => setImageUrl(imageUrl)}
       />
+
 
       <select style={{backgroundColor:'#262526',margin:'1rem',padding:'.5rem',color:'#262526',width:'50%',background:"#ddd"}} onChange={handleTypeChange}>
         <option value="">Type of item</option>
@@ -134,6 +137,10 @@ const ClothesForm = () => {
            <NavLink to= "/add Image">Add Image</NavLink>
          </div>
          <button type="submit" onClick={handleSubmit}>Add the item </button>
+        
+        <div className="images-preview-container">
+        
+      </div>
 
 
      </div>
